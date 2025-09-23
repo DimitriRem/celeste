@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margarita Celeste Astrology</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Sacramento&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for colors */
+        :root {
+            --color-spirit: #eabb88; /* Turquoise */
+            --color-spirit-dark: #2F929F;
+            --color-spirit-light: #D3D4D8; /* Silver */
+            --color-body: #eabb88; /* Crimson */
+            --color-body-dark: #8F1A1A;
+            --color-body-light: #D4AF37; /* Gold */
+            --color-bg-dark: #301a34;
+            --color-text-light: #E2E8F0;
+            --color-border: #334155;
+        }
+
+        /* General Body and Typography */
+        body {
+            font-family: 'Quicksand', sans-serif;
+            color: var(--color-text-light);
+            background-color: var(--color-bg-dark);
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Sacramento', serif;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 100vw;
+            margin: 0 auto;
+            padding: 1rem 1rem;
+        }
+        
+        /* Navigation */
+        .main-nav {
+            position: fixed;
+            font-family: 'Quicksand', sans-serif;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+            background-color: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(8px);
+            padding: 1rem 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .main-nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        .main-nav-links a {
+            color: var(--color-text-light);
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+        .main-nav-links a:hover {
+            color: var(--color-spirit);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .hero-split-background {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        @media (min-width: 768px) {
+            .hero-split-background {
+                flex-direction: row;
+            }
+        }
+        .spirit-side, .body-side {
+            position: relative;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            background-size: cover;
+            background-position: center;
+        }
+        .spirit-side {
+            background-image: url('images/heroleft2.jpg'); /* fallback for no video support */
+            position: relative;
+            overflow: hidden;
+        }
+        /* .spirit-side::before, .body-side::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.5;
+        } */
+        .spirit-side::before {
+            background-color: var(--color-spirit-dark);
+        }
+        .body-side {
+            background-image: url('images/heroright.jpg');
+            position: relative;
+            overflow: hidden;
+        }
+        .body-side::before {
+            background-color: var(--color-body-dark);
+        }
+        
+        .moon-icon, .venus-icon {
+            height: 3rem;
+            width: 3rem;
+            margin: 0 auto 1rem;
+        }
+        .moon-icon {
+            filter: drop-shadow(0 0 10px var(--color-spirit-light));
+        }
+        .venus-icon {
+            filter: drop-shadow(0 0 10px var(--color-body-light));
+        }
+        .text-glow {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            background-color: rgba(48, 26, 52, 0.8);
+            padding: 2rem 3rem;
+            border-radius: 1.5rem;
+            max-width: 56rem;
+            margin: 0 auto;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--color-border);
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--color-spirit-light);
+            margin: 1rem;
+        }
+        .hero-content h2 {
+            font-size: 1.5rem;
+            font-weight: normal;
+            color: var(--color-body);
+            margin-bottom: 1.5rem;
+        }
+        .hero-content p {
+            font-size: 1.125rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+        }
+        @media (min-width: 768px) {
+            .hero-content h1 { font-size: 5rem; }
+            .hero-content h2 { font-size: 1.875rem; }
+            .hero-content { padding: 3rem; }
+        }
+
+        /* CTA Buttons */
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        @media (min-width: 640px) {
+            .cta-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+        .cta-btn {
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-size: 1.125rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            transform: scale(1);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            text-decoration: none;
+            text-align: center;
+        }
+        .cta-btn:hover {
+            transform: scale(1.05);
+        }
+        .cta-btn-primary {
+            background-color: none;
+            color: var(--color-body);
+            border: 2px solid var(--color-body-light);
+        }
+        .cta-btn-primary:hover {
+            background-color: var(--color-body);
+            color: #fff;
+        }
+        .cta-btn-secondary {
+            background-color: none;
+            color: var(--color-spirit);
+            border: 2px solid var(--color-spirit-light);
+        }
+        .cta-btn-secondary:hover {
+            background-color: var(--color-spirit);
+            color: #fff;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 1rem;
+            text-align: center;
+        }
+        section h2 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+        section#about, section#tarot, section#festivals, section#workshops {
+            background-color: #442034;
+        }
+        .card {
+            background-color: #442034;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--color-border);
+        }
+        .twocolumn {
+            display: flex;
+            align-items: center;
+            max-width: fit-content;
+            margin: auto;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            align-content: center;
+            gap: 1rem;
+            justify-content: space-around;
+        }
+        @media (max-width: 768px) {
+            .twocolumn { flex-direction: column;
+            
+             }
+        }
+
+        /* Responsive Table */
+        .table-container {
+            overflow-x: auto;
+        }
+        .services-table {
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse ;
+            border-spacing: 0 1rem;
+        }
+        .services-table th {
+            padding: 0.5rem;
+            font-size: 1.125rem;
+            color: var(--color-spirit);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .services-table td {
+            padding: 1rem;
+            width:10%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .services-table td:first-of-type {
+    
+            width:40%;
+        }
+        
+        @media (max-width: 767px) {
+            .services-table thead {
+                display: none;
+            }
+            .services-table tr {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 1rem;
+            }
+            .services-table td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 0.5rem 0;
+                background-color: transparent;
+                border-radius: 0;
+            }
+            .services-table td:first-child { border-top: 1px solid rgba(255, 255, 255, 0.1); }
+            .services-table td:last-child { border-bottom: none; }
+            .services-table td::before {
+                content: attr(data-label);
+                font-weight: 600;
+                color: var(--color-body-light);
+                padding-right: 1rem;
+            }
+        }
+
+        /* Grid Layouts */
+        .grid-3-cols {
+            display: grid;
+            gap: 2rem;
+        }
+        @media (min-width: 768px) {
+            .grid-3-cols {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .grid-4-cols {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            justify-items: center;
+        }
+        @media (min-width: 768px) {
+            .grid-4-cols {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        .grid-4-cols div {
+            max-width: 220px;
+            
+             
+    object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        .grid-4-cols img:hover {
+            transform: scale(1.05);
+        }
+
+        .blog-post {
+            background-color: none;
+            padding: 2rem;
+            max-width: 700px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .blog-post h3 {
+            font-size: 2rem;
+            margin: 1rem 0;
+        }
+        .blog-post p {
+            font-weight: 300;
+            line-height: 1.625;
+        }
+        .blog-post a {
+            color: var(--color-spirit);
+            text-decoration: none;
+            transition: text-decoration 0.3s ease;
+        }
+        .blog-post a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="main-nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- 1. Home / Landing Page -->
+        <section id="home" class="hero-section">
+            <div class="hero-split-background">
+                <div class="spirit-side">
+                    <video class="spirit-bg-video" autoplay muted loop playsinline poster="images/heroleft2.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;">
+                        <source src="images/vidleft.mp4" type="video/mp4">
+                        <!-- Fallback image for browsers that do not support the video tag -->
+                        <img src="images/heroleft2.jpg" alt="Spirit background" style="width:100%;height:100%;object-fit:cover;">
+                    </video>
+                </div>
+                <div class="body-side">
+                    <video class="body-bg-video" autoplay muted loop playsinline poster="images/heroright.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;">
+                        <source src="images/vidright.mp4" type="video/mp4">
+                        <!-- Fallback image for browsers that do not support the video tag -->
+                        <img src="images/heroright.jpg" alt="Body background" style="width:100%;height:100%;object-fit:cover;">
+                    </video>
+                </div>
+            </div>
+
+            <div class="hero-content"><img src="images/MoonVenus.svg" alt="Symbol" style="width:150px;height:150px;">
+                <h1 class="text-glow">Margarita Celeste Astrology</h1>
+                <h2>Where the Ethereal Meets the Embodied</h2>
+                <p>
+                    Welcome to Margarita Celeste Astrology. Where ancient celestial wisdom meets embodied, heartfelt transformation. Journey with me through the stars, the body, and the soul — combining traditional astrology with Jungian psychology, archetypal activations, tarot, and sensual embodiment practices. Let’s awaken your inner goddess and craft your sacred path with astrology as your guide.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="cta-btn cta-btn-primary">Book a Reading</a>
+                    <a href="#workshops" class="cta-btn cta-btn-secondary">Explore Workshops</a>
+                    <a href="#blog" class="cta-btn cta-btn-primary">Read the Blog</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. About Margarita Celeste -->
+        <section id="about" class="container" style="padding:50px 0 150px 0; background: linear-gradient(to right, #442034 35%, #450f0f 65%);">
+            <h2 style="color: var(--color-spirit);">About Margarita Celeste</h2>
+            <p style="font-size: 1.125rem; font-weight: 300; margin-bottom: 2rem; gap: 0.5rem;">
+                Margarita Celeste is an embodied astrologer, Jungian therapist, and conscious relationships sacred blending ancient astrological wisdom with modern somatic and psychological practices.<br>With training in Traditional Astrology, Jungian depth psychology, Tantra, and yoga, Margarita offers a powerful, feminine, temple-like experience.
+            </p>
+            <div class="twocolumn"  >
+                       <div style="background-image: url('images/marg.jpg'); width: 300px; height: 300px; background-size: cover; background-position: center; border-radius: 50%; overflow: hidden; margin: 0 auto;"></div>
+                
+            <div class="card" style="background-color: #331313c6;">
+                <h3 style="font-size: 2rem; color: var(--color-body); margin-bottom: 1rem; ">Trainings & Lineage</h3>
+                <ul style="list-style: none; padding: 0; text-align: left; font-size: 1.125rem; font-weight: 300; display: flex; flex-direction: column; gap: 0.5rem;">
+                    <li style="display: flex; align-items: center;"><span style="color: var(--color-body); margin-right: 0.75rem;">&bull;</span> Diploma in Traditional Astrology</li>
+                    <li style="display: flex; align-items: center;"><span style="color: var(--color-body); margin-right: 0.75rem;">&bull;</span> Jungian Psychology Practitioner</li>
+                    <li style="display: flex; align-items: center;"><span style="color: var(--color-body); margin-right: 0.75rem;">&bull;</span> Certified Yoga Teacher (India)</li>
+                    <li style="display: flex; align-items: center;"><span style="color: var(--color-body); margin-right: 0.75rem;">&bull;</span> School of Intuition & Healing alumna</li>
+                    <li style="display: flex; align-items: center;"><span style="color: var(--color-body); margin-right: 0.75rem;">&bull;</span> Embodiment & Tantra Immersion</li>
+                </ul>
+            </div></div>
+            <p style="font-size: 1.125rem; font-weight: 300; margin-top: 2rem;">
+                Margarita’s festival & retreat work includes Spirit Fest, Hedone, Retreat Yourself, Dhganti Fest, and more.
+                <br><br>
+            </p>
+        </section>
+
+        <!-- 3. Astrology Services -->
+        <section id="services" class="container" style="width: 100%; background-image: url(images/heroleft.jpg); background-size: cover; background-position: center; background-attachment: fixed; padding:50px 0 150px 0;">
+            <h2 style="color: var(--color-spirit); text-shadow: 0 0 4px #0e131e, 0 0 16px #000;">Astrology Services</h2>
+            
+            <div class="card" style="width: 75%; margin: auto; background-color: rgba(48, 26, 52, 0.8); backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px);">
+                <h3 style="font-size: 2rem; color: var(--color-body); margin-bottom: 1.5rem;">Readings & Pricing</h3>
+                <div class="table-container">
+                    <table class="services-table">
+                        <thead>
+                            <tr>
+                                <th>Service</th>
+                                <th>Duration</th>
+                                <th>Unprepared Price</th>
+                                <th>Prepared Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="Service">Natal Reading</td>
+                                <td data-label="Duration">60 min</td>
+                                <td data-label="Unprepared Price">R708 / $78</td>
+                                <td data-label="Prepared Price">R880 / $88</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Service">Natal Reading</td>
+                                <td data-label="Duration">90 min</td>
+                                <td data-label="Unprepared Price">R1080 / $108</td>
+                                <td data-label="Prepared Price">R1380 / $138</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Service">Year Ahead Forecast</td>
+                                <td data-label="Duration">60 min</td>
+                                <td data-label="Unprepared Price">R708 / $78</td>
+                                <td data-label="Prepared Price">R880 / $88</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Service">Relationship Astrology</td>
+                                <td data-label="Duration">Custom</td>
+                                <td data-label="Unprepared Price">Contact</td>
+                                <td data-label="Prepared Price">Contact</td>
+                            </tr> <tr>
+                                <td data-label="Service">Career &amp; Financial Astrology</td>
+                                <td data-label="Duration">Custom</td>
+                                <td data-label="Unprepared Price">Contact</td>
+                                <td data-label="Prepared Price">Contact</td>
+                            </tr> <tr>
+                                <td data-label="Service">Sensuality &amp; Eros Astrology</td>
+                                <td data-label="Duration">Custom</td>
+                                <td data-label="Unprepared Price">Contact</td>
+                                <td data-label="Prepared Price">Contact</td>
+                            </tr> <tr>
+                                <td data-label="Service">Astrocartography &amp; Electional Astrology</td>
+                                <td data-label="Duration">Custom</td>
+                                <td data-label="Unprepared Price">Contact</td>
+                                <td data-label="Prepared Price">Contact</td>
+                            </tr> <tr>
+                                <td data-label="Service">Children's Charts</td>
+                                <td data-label="Duration">Custom</td>
+                                <td data-label="Unprepared Price">Contact</td>
+                                <td data-label="Prepared Price">Contact</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div style="margin-top: 2rem;">
+                    <h4 style="font-size: 2rem; color: var(--color-spirit); margin-bottom: 1rem;">Mentoring Packages</h4>
+                    <ul style="list-style: disc; padding: 0; text-align: left; font-size: 1.125rem; font-weight: 300; margin: auto; max-width:fit-content;">
+                        <li>Monthly deep-dive sessions</li>
+                        <li>Quarterly check-ins</li>
+                        <li>Bi-annual / annual coaching</li>
+                    </ul>
+                    <p style="font-size: 1rem; font-weight: 300; margin-top: 1rem; font-style: italic;">Includes personalized written forecasts and embodied practices.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Embodied Astrology & Workshops -->
+        <section id="workshops" class="container" style="background-color: #450f0f; padding:50px 0 150px 0; background-image: url('images/embodi.png'); background-size:contain; background-repeat: no-repeat; background-position:left;">
+            <h2 style="color: var(--color-body); text-shadow: 0 0 4px #0e131e, 0 0 16px #000;">Embodied Astrology & Workshops</h2>
+            <p style="font-size: 1.125rem; font-weight: 300; margin-bottom: 2rem; text-shadow: 0 0 4px #0e131e, 0 0 16px #000;">
+                Astrology is meant to be felt as much as understood. <br>These workshops combine astrology with movement, breathwork, parts work, and ritual to fully embody your cosmic blueprint.
+            </p>
+            <div class="card" style="background-color: #331313c6; width: 50%; margin: auto; backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px);">
+                <h3 style="font-size: 2rem; color: var(--color-spirit); margin-bottom: 1rem;">Workshops Include</h3>
+                <ul style="list-style: none; padding: 0; text-align: left; font-size: 1.125rem; font-weight: 300; display: flex; flex-direction: column; gap: 0.5rem; margin: auto; max-width:fit-content;">
+                    <li style="display: flex; align-items: center;"><span style="color: var(--color-spirit); margin-right: 0.75rem;">&bull;</span> Venus & Sensuality Archetypes</li>
+                    <li style="display: flex; align-items: center;"><span style="color: var(--color-spirit); margin-right: 0.75rem;">&bull;</span> Moon Mysteries & Emotional Embodiment</li>
+                    <li style="display: flex; align-items: center;"><span style="color: var(--color-spirit); margin-right: 0.75rem;">&bull;</span> Dark Eros: Shadow & Desire</li>
+                    <li style="display: flex; align-items: center;"><span style="color: var(--color-spirit); margin-right: 0.75rem;">&bull;</span> Parts Work & Astrology Integration</li>
+                </ul>
+                <p style="font-size: 1rem; font-weight: 300; font-style: italic; margin-top: 1.5rem;">Workshops available online and in person.</p>
+            </div>
+        </section>
+
+        <!-- 5. Courses & Pre-Recorded Offerings -->
+        <section id="courses" class="container" style="padding:50px 20% 150px 20%;">
+            <h2 style="color: var(--color-spirit);">Courses & Pre-Recorded Offerings</h2>
+            <p style="font-size: 1.125rem; font-weight: 300;">
+                Deepen your practice at your own pace with courses like Embodied Astrology Essentials, Dark Eros, and Venus Archetypes. Includes guided meditations, written materials, and lifetime access.
+            </p>
+        </section>
+
+        <!-- 6. Tarot, Yoga & Ritual Offerings -->
+        <section id="tarot" class="container" style="padding:50px 20% 150px 20%; background-image: url('images/ritual.jpg'); background-size:cover;background-position: center; background-attachment: fixed;">
+            <h2 style="color: var(--color-body); text-shadow: 0 0 4px #0e131e, 0 0 16px #000;">Tarot, Yoga & Ritual Offerings</h2>
+            <p style="font-size: 1.125rem; font-weight: 300; text-shadow: 0 0 4px #0e131e, 0 0 16px #000;">
+                Personalized tarot readings, sensual yoga journeys, tantric temple rituals, and sacred ceremonies designed to awaken your inner wisdom and sensual power.
+            </p>
+        </section>
+
+        <!-- 7. Testimonials -->
+        <section id="testimonials" class="container" style="padding:50px 50px 150px 50px; background-color: #450f0f;">
+            <h2 style="color: var(--color-spirit);">Testimonials</h2>
+            <div class="grid-3-cols">
+                <div class="card" style="background-color: #331313c6;">
+                    <p style="font-size: 1.125rem; font-weight: 300; font-style: italic;">“Margarita’s readings are transformational — blending deep astrology with heart and body.”</p>
+                </div>
+                <div class="card" style="background-color: #331313c6;">
+                    <p style="font-size: 1.125rem; font-weight: 300; font-style: italic;">“Her workshops opened me to new levels of sensuality and self-awareness.”</p>
+                </div>
+                <div class="card" style="background-color: #331313c6;">
+                    <p style="font-size: 1.125rem; font-weight: 300; font-style: italic;">“A powerful guide for anyone seeking sacred connection with the stars and self.”</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 8. Festivals & Retreats -->
+        <section id="festivals" class="container"  style="padding:50px 50px 150px 50px; ">
+            <h2 style="color: var(--color-body);">Festivals & Retreats</h2>
+            <p style="font-size: 1.125rem; font-weight: 300; margin-bottom: 2rem;">
+                Photos and stories from international festivals and retreats where Margarita has shared her work, along with info on upcoming events.
+            </p>
+            <div class="grid-4-cols">
+                <div><img src="images/logo-spiritfest.png" alt="Spiritfest logo" width="180" height="180"></div>
+                <div><img src="images/logo-retreat.png" alt="Retreat Yourself logo" width="180" height="180"></div>
+                <div><img src="images/logo-hedone.png" alt="Hedone Festival logo" width="180" height="180"></div>
+                <div><img src="images/logo-shanti.png" alt="Shanti Fest logo" width="180" height="180"></div>
+            </div>
+        </section>
+
+        <!-- 9. Blog -->
+        <section id="blog" class="container"  style="padding:50px 0 150px 0; background-color: #450f0f; ">
+            <h2 style="color: var(--color-spirit);">Blog & Writing</h2>
+            <p style="font-size: 1.125rem; font-weight: 300; margin-bottom: 2rem;">
+                Insights on astrology, embodiment, sacred sexuality, and conscious relating — monthly horoscopes, archetypal deep dives, and ritual guides.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 3rem; text-align: left; max-width: fit-content; margin: 0 auto;">
+                <article class="blog-post">
+                    <h3 style="color: var(--color-body);">Monthly Horoscopes: Unlocking Your September Path</h3>
+                    <p style="font-size: 0.875rem; color: #888888; margin-bottom: 1rem;">Published September 22, 2025</p>
+                    <p>
+                        As the seasons shift, so too do the cosmic energies guiding our lives. This month, we dive deep into the alignments of Virgo season, focusing on... <a href="#">Read more</a>
+                    </p>
+                </article>
+                <article class="blog-post">
+                    <h3 style="color: var(--color-body);">Venus Retrograde: The Art of Sacred Desire</h3>
+                    <p style="font-size: 0.875rem; color: #888; margin-bottom: 1rem;">Published August 15, 2025</p>
+                    <p>
+                        When Venus begins her backward dance, it’s a powerful invitation to re-evaluate our relationships, values, and sensual self. Instead of dreading this period... <a href="#">Read more</a>
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 10. Contact & Booking -->
+        <section id="contact" class="container"  style="padding:50px 0 150px 0;">
+            <h2 style="color: var(--color-body);">Contact & Booking</h2>
+            <p style="font-size: 1.125rem; font-weight: 300; margin-bottom: 2rem;">
+                Ready to begin your cosmic journey? Book a reading or workshop, or send a message to connect. I look forward to walking this path with you.
+            </p>
+            <div class="cta-buttons">
+                <a href="mailto:margarita@celesteastrology.com" class="cta-btn cta-btn-primary">Send a Message</a>
+                <a href="#services" class="cta-btn cta-btn-secondary">Book Now</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Margarita Celeste Astrology. All rights reserved.
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
