@@ -3,79 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Margarita Celeste Astrology</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Cinzel+Decorative&family=Miss+Fajardose&display=swap" rel="stylesheet">
+    <title>Margarita Celeste Astrology: Embodied Wisdom & Jungian Therapy</title>
+    <meta name="description" content="Margarita Celeste blends ancient astrological wisdom with Jungian psychology and sensual embodiment practices for heartfelt transformation. Book your reading in ZAR.">
+    <meta name="keywords" content="astrology, jungian therapy, conscious relationships, natal chart, embodied astrology, cape town, ZAR pricing">
+    <link rel="canonical" href="[YOUR_CANONICAL_URL]">
+
+    <link rel="preload" href="https://fonts.gstatic.com/s/quicksand/v30/6xKtdSZaJdY9FHRYmcZJ_B3P.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&family=Cinzel+Decorative:wght@400;700&family=Miss+Fajardose&display=swap">
+    
     <style>
         /* CSS Variables for colors */
         :root {
-            --color-spirit: #eabb88; /* Turquoise */
+            /* Spirit/Celestial Palette */
+            --color-spirit: #eabb88; /* Soft Gold/Amber (Primary Accent) */
             --color-spirit-dark: #2F929F;
-            --color-spirit-light: #D3D4D8; /* Silver */
-            --color-body: #eabb88; /* Crimson */
-            --color-body-dark: #8F1A1A;
-            --color-body-light: #D4AF37; /* Gold */
-            --color-bg-dark: #301a34;
+            --color-spirit-light: #D3D4D8; /* Silver/Off-White */
+            
+            /* Body/Earth Palette */
+            --color-body: #8F1A1A; /* Deep Crimson/Red (Secondary Accent) */
+            --color-body-light: #eabb88; /* The same primary accent for unified highlight */
+            --color-body-dark: #501414; /* Dark Background */
+            
+            /* Base */
+            --color-bg-dark: #431b1b;
             --color-text-light: #E2E8F0;
-            --color-border: #334155;
+            --color-border: #553333;
+            
+            /* Spacing/Defaults */
+            --header-height: 4rem;
         }
 
         /* General Body and Typography */
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Quicksand', sans-serif;
             color: var(--color-text-light);
             background-color: var(--color-bg-dark);
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
+
+        /* --- Mobile Menu Overlay --- */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 34; /* Below nav links, above content */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        body.nav-open::before {
+            opacity: 1;
+            visibility: visible;
+        }
+
 
         h1 {
             font-family: 'Miss Fajardose', serif;
             font-weight: 300;
-            font-size: 6rem;
+            font-size: 5rem; /* Responsive fluid font size */
+            margin: 1rem 0;
         }
-      h2, h3, h4, h5, h6 {
+        
+        h2, h3, h4, h5, h6 {
             font-family: 'Cinzel Decorative', serif;
-            font-weight: 300;
+            font-weight: 400;
         }
+        
+        h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+
+        p {font-size: 1.1rem; font-weight: 300;}
 
         .container {
-            max-width: 100vw;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem 1rem;
+            padding: 0 1.5rem; /* Consolidate padding to container */
         }
         
         /* Navigation */
         .main-nav {
             position: fixed;
-            font-family: 'Quicksand', sans-serif;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 50;
-            background-color: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(8px);
-            padding: 1rem 0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            /* Use a common variable for the background color blend */
+            background-color: rgba(28, 3, 3, 0.75); 
+            backdrop-filter: blur(8px); /* Increased blur for better contrast */
+            
+            transition: opacity 1s ease, visibility 1s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
         }
         .main-nav-links {
             display: flex;
             justify-content: center;
             gap: 1.5rem;
-            font-size: 0.875rem;
+            font-size: 0.95rem;
             font-weight: 600;
+            list-style: none; /* Removed list styling */
+            padding: 0.5rem;
+            margin: 0;
         }
         .main-nav-links a {
             color: var(--color-text-light);
-            transition: color 0.3s ease;
+            transition: color 1s ease;
             text-decoration: none;
+            padding: 0.5rem 0; /* Add padding for a larger click area */
         }
-        .main-nav-links a:hover {
+        .main-nav-links a:hover,
+        .main-nav-links a:focus {
             color: var(--color-spirit);
         }
+        @media (max-width: 450px) {
+            .main-nav-links {
+                font-size:0.7rem;
+                gap: 1rem;
+                display: flex;
+                align-items: end;
+            }
+        }
+        
+        /* --- Hamburger Menu --- */
+        .hamburger-menu {
+            display: none; /* Hidden by default */
+            position: relative;
+            /* New styles for flex layout */
+            align-items: center;
+            color: var(--color-text-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 300;
+            font-size: 1rem;
+            z-index: 60; /* Above nav content */
+            background: transparent;
+            border: none;
+            padding: 10px;
+            padding-right: 18px;
+            cursor: pointer;
+        }
+        .hamburger-box {
+            width: 30px;
+            height: 24px;
+            display: inline-block;
+            position: relative;
+        }
+        .hamburger-inner,
+        .hamburger-inner::before,
+        .hamburger-inner::after {
+            width: 100%;
+            height: 3px;
+            background-color: var(--color-text-light);
+            border-radius: 3px;
+            position: absolute;
+            transition: transform 0.2s ease-in-out;
+        }
+        .hamburger-inner {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .hamburger-inner::before,
+        .hamburger-inner::after {
+            content: '';
+            display: block;
+        }
+        .hamburger-inner::before {
+            top: -10px;
+        }
+        .hamburger-inner::after {
+            bottom: -10px;
+        }
 
-        /* Hero Section */
+        /* Active state for hamburger */
+        .nav-open .hamburger-inner {
+            transform: rotate(45deg);
+        }
+        .nav-open .hamburger-inner::before {
+            top: 0;
+            transform: rotate(-90deg);
+        }
+        .nav-open .hamburger-inner::after {
+            bottom: 0;
+            transform: rotate(0deg);
+            opacity: 0;
+        }
+
+        @media (max-width: 700px) {
+            .hamburger-menu {
+                display: flex; /* Changed from block to flex */
+            }
+            .main-nav {
+                display: flex;
+                justify-content: center;
+                width:100%;
+            }
+        }
+
+.secondary-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 51; /* Higher than main-nav */
+            background-color: rgba(28, 3, 3, 0.75);
+            backdrop-filter: blur(8px);        
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .nav-limiter {
+            max-width:1200px;
+            margin:0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Changed from center */
+            padding:0 15px;
+        }
+
+        .secondary-nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .secondary-nav-logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .secondary-nav-logo span {
+            font-family: 'Miss Fajardose', serif;
+            font-size: 2.6rem;
+        }
+
+        .secondary-nav .main-nav-links {
+            display: flex;
+            justify-content: flex-end;
+            flex: 1;
+        }
+
+        /* Class to trigger the transition */
+        .secondary-nav.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media (max-width: 700px) {
+            .main-nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                padding:100px 0 50px 0; /* Offset for fixed header */
+                background-color: var(--color-bg-dark);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                font-size: 1.5rem;
+                transform: translateX(100%);
+                transition: transform 0.3s ease-in-out;
+                z-index: 55; /* Ensure links are above the overlay */
+            }
+            .nav-open .main-nav-links {
+                transform: translateX(0);
+            }
+            .secondary-nav .nav-limiter {
+                justify-content: space-between;
+            }
+        }
+
+        /* --- Hero Section --- */
         .hero-section {
             position: relative;
             min-height: 100vh;
@@ -83,7 +283,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1rem;
+            padding-top: var(--header-height); /* Offset for fixed header */
         }
         .hero-split-background {
             position: absolute;
@@ -96,229 +296,447 @@
                 flex-direction: row;
             }
         }
-        .spirit-side, .body-side {
+        .split-side {
             position: relative;
             flex: 1;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 3rem;
             background-size: cover;
             background-position: center;
         }
-        .spirit-side {
-            background-image: url('images/heroleft2.jpg'); /* fallback for no video support */
-            position: relative;
-            overflow: hidden;
-        }
-        /* .spirit-side::before, .body-side::before {
-            content: '';
+        .spirit-side { background-image: url('images/heroleft2.jpg'); } 
+        .body-side { background-image: url('images/heroright.jpg'); }
+
+        .bg-video {
             position: absolute;
-            inset: 0;
-            opacity: 0.5;
-        } */
-        .spirit-side::before {
-            background-color: var(--color-spirit-dark);
-        }
-        .body-side {
-            background-image: url('images/heroright.jpg');
-            position: relative;
-            overflow: hidden;
-        }
-        .body-side::before {
-            background-color: var(--color-body-dark);
-        }
-        
-        .moon-icon, .venus-icon {
-            height: 3rem;
-            width: 3rem;
-            margin: 0 auto 1rem;
-        }
-        .moon-icon {
-            filter: drop-shadow(0 0 10px var(--color-spirit-light));
-        }
-        .venus-icon {
-            filter: drop-shadow(0 0 10px var(--color-body-light));
-        }
-        .text-glow {
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
         }
 
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 10; /* Higher z-index to sit above the video overlay */
             text-align: center;
-            background-color: rgba(48, 26, 52, 0.8);
-            padding: 2rem 3rem;
+            background-color: rgba(28, 3, 3, 0.75); 
+            padding: 2rem;
             border-radius: 1.5rem;
-            max-width: 56rem;
-            margin: 0 auto;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            border: 1px solid var(--color-border);
-        }
-        .hero-content h1 {
-            font-weight: 300;
-            color: var(--color-spirit-light);
-            margin: 1rem;
+            max-width: 650px;
+            margin: 1.5rem; /* Ensure padding on small screens */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
         }
         .hero-content h2 {
-            font-size: 1.5rem;
-            font-weight: normal;
-            color: var(--color-body);
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--color-spirit);
             margin-bottom: 1.5rem;
         }
         .hero-content p {
-            font-size: 1.125rem;
+            font-size: 1rem;
             font-weight: 300;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
         }
-        @media (min-width: 768px) {
-            /* .hero-content h1 { font-size: 5rem; } */
-            .hero-content h2 { font-size: 1.875rem; }
-            .hero-content { padding: 3rem; }
+        .hero-logo {
+            width: 100px;
+            height: auto;
         }
 
-        /* CTA Buttons */
+        /* --- Mobile-only Hero Details --- */
+        .hero-details-mobile {
+            display: none; /* Hidden by default on desktop */
+        }
+        .hero-details-mobile h2 {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--color-spirit);
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 767px) {
+
+            .hero-details-mobile {
+                display: block;
+                text-align: center;
+                padding: 2rem 1.5rem 4rem 1.5rem;
+                background-color: var(--color-body);
+            }
+            .hero-details-mobile .cta-buttons {
+                margin-top: 2rem;
+            }
+
+            .hero-content {
+                padding: 1.5rem;
+            }
+            .hero-content h1 {
+                margin: 0;
+                font-size: 3.5rem;
+                line-height: 1.2;
+            }
+            .hero-section {
+                height:80px
+
+            }
+
+            /* Hide these from the main hero content on mobile */
+            .hero-content .hero-details-desktop {
+                display: none; 
+            }
+        }
+        
+        /* Utility */
+        .text-glow {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        /* --- CTA Buttons --- */
         .cta-buttons {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 1rem;
+            width: 100%;
         }
         @media (min-width: 640px) {
             .cta-buttons {
                 flex-direction: row;
                 justify-content: center;
+                gap: 1.5rem;
             }
         }
         .cta-btn {
-            padding: 0.75rem 2rem;
+            padding: 0.75rem 1rem;
             border-radius: 9999px;
-            font-size: 1.125rem;
-            font-weight: bold;
+            font-size: 1.05rem;
+            font-weight: 700;
             transition: all 0.3s ease;
-            transform: scale(1);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             text-decoration: none;
             text-align: center;
-        }
-        .cta-btn:hover {
-            transform: scale(1.05);
+            width: 100%; /* Full width on mobile */
+            max-width: 300px; /* Constrain width on larger screens */
+                   }
+        @media (min-width: 640px) {
+            .cta-btn {
+                width: auto;
+                padding: 0.75rem 2rem;
+            }
         }
         .cta-btn-primary {
-            background-color: none;
+            background-color: var(--color-spirit);
             color: var(--color-body);
             border: 2px solid var(--color-body-light);
         }
         .cta-btn-primary:hover {
             background-color: var(--color-body);
-            color: #fff;
+            color: var(--color-text-light);
+            border-color: var(--color-body);
         }
         .cta-btn-secondary {
-            background-color: none;
+            background-color: transparent;
             color: var(--color-spirit);
-            border: 2px solid var(--color-spirit-light);
+            border: 2px solid var(--color-spirit);
         }
         .cta-btn-secondary:hover {
             background-color: var(--color-spirit);
-            color: #fff;
+            color: var(--color-bg-dark); /* Dark text on light background for contrast */
+            border-color: var(--color-spirit);
         }
 
-        /* Section Styling */
+        /* --- General Section Styling --- */
         section {
-            padding: 5rem 1rem;
+            padding: 5rem 0; /* Vertical padding on sections, horizontal padding on .container */
             text-align: center;
         }
-        section h2 {
-            font-size: 3rem;
-            font-weight: 300;
-            margin-bottom: 1.5rem;
+        .section-bg-dark {
+            background-color: var(--color-body-dark);
         }
-        section#about, section#tarot, section#festivals, section#workshops {
-            background-color: #442034;
+        .section-padding-large {
+             padding: 4rem 0 8rem 0;
         }
-        .card {
-            background-color: #442034;
-            padding: 2rem;
+        .section-bg-image {
+            background-size: cover;
+            background-position: center; 
+            background-attachment: fixed;
+            background-color: rgba(48, 26, 52, 0.75); /* Fallback BG color */
+        }
+        .section-overlay {
+            background-color: rgba(48, 26, 52, 0.85); 
+            backdrop-filter: blur(5px);
+            padding: 3rem 1rem;
             border-radius: 1.5rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--color-border);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--color-spirit);
         }
-        .twocolumn {
-            display: flex;
-            align-items: center;
-            max-width: fit-content;
-            margin: auto;
-            flex-wrap: nowrap;
-            flex-direction: row;
-            align-content: center;
-            gap: 1rem;
-            justify-content: space-around;
-        }
-        @media (max-width: 768px) {
-            .twocolumn { flex-direction: column;
-            
-             }
-        }
-
-        /* Responsive Table */
-        .table-container {
-            overflow-x: auto;
-        }
-        .services-table {
-            width: 100%;
-            text-align: left;
-            border-collapse: collapse ;
-            border-spacing: 0 1rem;
-        }
-        .services-table th {
-            padding: 0.5rem;
-            font-size: 1.125rem;
-            color: var(--color-spirit);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .services-table td {
-            padding: 1rem;
-            width:10%;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .services-table td:first-of-type {
-    
-            width:40%;
+        .section-header-glow {
+            text-shadow: 0 0 4px #0e131e, 0 0 16px #000;
         }
         
-        @media (max-width: 767px) {
-            .services-table thead {
-                display: none;
-            }
-            .services-table tr {
-                display: flex;
-                flex-direction: column;
-                margin-bottom: 1rem;
-            }
-            .services-table td {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                padding: 0.5rem 0;
-                background-color: transparent;
-                border-radius: 0;
-            }
-            .services-table td:first-child { border-top: 1px solid rgba(255, 255, 255, 0.1); }
-            .services-table td:last-child { border-bottom: none; }
-            .services-table td::before {
-                content: attr(data-label);
-                font-weight: 600;
-                color: var(--color-body-light);
-                padding-right: 1rem;
-            }
+        /* --- About Section Specifics --- */
+        .twocolumn {
+            display: flex;
+            flex-direction: column; /* Changed to column for a unified stack */
+            align-items: center; /* Center items horizontally */
+            justify-content: center;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center the card and text */
+            gap: 2rem;
+        }
+        .about-image {
+            width: 300px;
+            height: 300px;
+            background-size: cover; 
+            background-position: center; 
+            border-radius: 50%; 
+            overflow: hidden; 
+            margin: 0;
+            flex-shrink: 0;
+        }
+        .about-list {
+            list-style: disc;
+            padding: 0;
+            text-align: left;
+            font-size: 1.125rem;
+            font-weight: 300;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .about-list li {
+            display: flex; 
+            align-items: flex-start; /* Aligns bullet point to top of text */
+            flex-wrap: wrap;
+        }
+        .about-list span {
+            color: var(--color-spirit); 
+            margin-right: 0.75rem;
+        }
+        .institution-details {
+            display: none;
+            font-style: italic;
+            color: var(--color-spirit);
+            margin-left: 0.5rem;
+        }
+        .institution-details2 {
+            font-style: italic;
+            margin-left: 0.5rem;
+            color: var(--color-spirit);
+        }
+        .about-list.expanded .institution-details {
+            display: inline;
+        }
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        .expandable-content.expanded {
+            max-height: fit-content; /* Adjust as needed to fit content */
+            transition: max-height 0.5s ease-in;
+        }
+        .expand-btn {
+            background: none;
+            border: 1px solid var(--color-spirit);
+            color: var(--color-spirit);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex; /* Align text and arrow */
+            align-items: center;
+            gap: 0.5rem; /* Space between text and arrow */
+        }
+        .expand-btn:hover {
+            background-color: var(--color-spirit);
+            color: var(--color-bg-dark);
         }
 
-        /* Grid Layouts */
+        /* --- Currency Toggle --- */
+        .expand-btn::after {
+            content: '';
+            display: inline-block;
+            width: 0.8em;
+            height: 0.8em;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23eabb88' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            transition: transform 0.3s ease;
+        }
+        .expand-btn[aria-expanded="true"]::after {
+            transform: rotate(180deg);
+            color: var(--color-body-dark);
+        }
+
+
+        .services-header {
+            display: flex;
+            justify-content: center ;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+            gap: 1rem;
+        }
+        .currency-toggle {
+            display: flex;
+            border: 1px solid var(--color-spirit);
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+        .currency-btn {
+            background: transparent;
+            border: none;
+            color: var(--color-spirit);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .currency-btn.active {
+            background-color: var(--color-spirit);
+            color: var(--color-bg-dark);
+        }
+
+        /* --- Currency Visibility Rules --- */
+        .service-list[data-currency-view="ZAR"] .price-usd,
+        .service-list[data-currency-view="USD"] .price-zar {
+            display: none;
+        }
+        .service-list[data-currency-view="ZAR"] .price-zar,
+        .service-list[data-currency-view="USD"] .price-usd {
+            display: inline;
+        }
+
+        /* --- New Service List Layout --- */
+        .service-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .service-item {
+            background-color: rgba(0,0,0,0.2);
+            border: 1px solid var(--color-border);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr; /* Mobile-first: single column */
+            gap: 1.5rem;
+            align-items: center;
+        }
+        .service-item h4 {
+            font-size: 1.5rem;
+            color: var(--color-spirit);
+            margin: 0 0 0.5rem 0;
+        }
+        .service-item p {
+            font-size: 1rem;
+            margin: 0;
+            opacity: 0.9;
+        }
+        .service-pricing {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center; /* Center on mobile */
+        }
+        .price-option {
+            text-align: center;
+        }
+        .price-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: var(--color-spirit);
+            margin-bottom: 0.5rem;
+        }
+        .price-amount {
+            font-family: monospace;
+            font-size: 1.2rem;
+        }
+        .service-action .cta-btn {
+            width: 100%;
+            padding: 0.5rem 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .service-item {
+                grid-template-columns: 2fr 1fr 1fr; /* 3 columns on desktop */
+            }
+            .service-pricing { justify-content: flex-end; }
+            .service-description {
+                text-align: left;
+                hyphens: auto;
+  overflow-wrap: break-word;
+            }
+        }
+        
+        /* --- Info Icon & Popup --- */
+        .th-content {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .info-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            border: 1px solid var(--color-spirit);
+            color: var(--color-spirit);
+            font-size: 0.6rem;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .info-icon:hover {
+            background-color: var(--color-spirit);
+            color: var(--color-bg-dark);
+        }
+        .info-popup {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70%;
+            max-width: 450px;
+            background-color: var(--color-body-dark);
+            color: var(--color-text-light);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid var(--color-spirit);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            z-index: 101; /* Above overlay */
+        }
+        .info-popup.active { display: block; }
+        .info-popup h4 { color: var(--color-spirit); margin-top: 0; }
+        .info-popup p { font-size: 1rem; margin-bottom: 0; }
+        .close-popup { position: absolute; top: 0.5rem; right: 1rem; background: none; border: none; color: var(--color-text-light); font-size: 2rem; cursor: pointer; }
+        
+        /* --- Grid Layouts --- */
         .grid-3-cols {
             display: grid;
             gap: 2rem;
+            grid-template-columns: 1fr;
         }
         @media (min-width: 768px) {
             .grid-3-cols {
@@ -329,50 +747,119 @@
         .grid-4-cols {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
             justify-items: center;
         }
-        @media (min-width: 768px) {
+        @media (min-width: 640px) {
             .grid-4-cols {
                 grid-template-columns: repeat(4, 1fr);
             }
         }
-        .grid-4-cols div {
-            max-width: 220px;
-            
-             
-    object-fit: contain;
+        .grid-4-cols img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
             transition: transform 0.3s ease;
         }
         .grid-4-cols img:hover {
             transform: scale(1.05);
         }
 
+        /* --- Blog Posts --- */
+        .blog-list {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            text-align: left;
+            max-width: 800px; /* Increased max-width for better reading experience */
+            margin: 0 auto;
+        }
         .blog-post {
-            background-color: none;
-            padding: 2rem;
-            max-width: 700px;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+            padding: 2.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        @media (min-width: 768px) {
+            .blog-post {
+                grid-template-columns: 250px 1fr; /* Image column and text column */
+            }
+        }
+        .blog-post-image {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            border-radius: 0.75rem;
         }
         .blog-post h3 {
-            font-size: 2rem;
-            margin: 1rem 0;
+            font-weight: 300;
+            margin: 0.5rem 0;
+        }
+        .blog-post .date {
+            font-size: 0.875rem;
+            color: #888888;
+            margin-bottom: 1rem;
+            display: block;
         }
         .blog-post p {
             font-weight: 300;
-            line-height: 1.625;
+            line-height: 1.7;
         }
         .blog-post a {
             color: var(--color-spirit);
             text-decoration: none;
             transition: text-decoration 0.3s ease;
+            font-weight: 600;
         }
         .blog-post a:hover {
             text-decoration: underline;
         }
         
+        /* --- Testimonial Carousel --- */
+        .testimonial-scroller {
+            max-width: 1000px;
+            margin: auto;
+            overflow-x: scroll; /* Make it scrollable */
+            -webkit-mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+            mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+            user-select: none; /* Prevent text selection while dragging */
+            /* Hide scrollbar */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* IE and Edge */
+        }
+        .testimonial-scroller::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, and Opera */
+        }
+
+        .testimonial-carousel {
+            display: flex;
+            gap: 2rem;
+            width: max-content; /* Allow content to overflow for scrolling */
+            cursor: grab;
+        }
+
+        .testimonial-carousel.active {
+            cursor: grabbing;
+        }
+
+        .testimonial-carousel .card {
+            flex: 0 0 350px; /* Set a fixed base width for each card */
+            max-width: 350px;
+            background-color: #3f0707;
+            scroll-snap-align: center; /* Optional: for smoother snapping after drag */
+        }
+
+        @media (max-width: 767px) {
+            .testimonial-carousel .card {
+                flex-basis: 80vw; /* Make cards wider on mobile */
+            }
+        }
         /* Footer */
         footer {
-            padding: 3rem 0;
+            padding: 3rem 1.5rem;
             text-align: center;
             font-size: 0.875rem;
             color: #64748b;
@@ -381,274 +868,976 @@
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="main-nav">
-        <div class="main-nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#blog">Blog</a>
-            <a href="#contact">Contact</a>
-        </div>
+    <nav class="main-nav" aria-label="Main Navigation">
+        <button class="hamburger-menu" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav-links-main">
+            <span class="hamburger-label">Menu</span>
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+        <ul class="main-nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#workshops">Workshops</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
-    <!-- Main Content -->
+    <nav class="secondary-nav" aria-label="Secondary Navigation">
+        <div class="nav-limiter">
+            <div class="secondary-nav-logo">
+                <img src="images/MCLogoWhite.svg" alt="Margarita Celeste Astrology Logo">
+                <span>Margarita Celeste</span>
+            </div>
+            
+            <button class="hamburger-menu" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav-links-secondary">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+            <ul class="main-nav-links" id="main-nav-links-secondary">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#workshops">Workshops</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        
+    </nav>
+
     <main>
-        <!-- 1. Home / Landing Page -->
         <section id="home" class="hero-section">
             <div class="hero-split-background">
-                <div class="spirit-side">
-                    <video class="spirit-bg-video" autoplay muted loop playsinline poster="images/heroleft2.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;">
+                <div class="split-side spirit-side">
+                    <video class="bg-video" autoplay muted loop playsinline poster="images/heroleft2.jpg">
                         <source src="images/vidleft.mp4" type="video/mp4">
-                        <!-- Fallback image for browsers that do not support the video tag -->
-                        <img src="images/heroleft2.jpg" alt="Spirit background" style="width:100%;height:100%;object-fit:cover;">
-                    </video>
+                        </video>
                 </div>
-                <div class="body-side">
-                    <video class="body-bg-video" autoplay muted loop playsinline poster="images/heroright.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;">
-                        <source src="images/vidright.mp4" type="video/mp4">
-                        <!-- Fallback image for browsers that do not support the video tag -->
-                        <img src="images/heroright.jpg" alt="Body background" style="width:100%;height:100%;object-fit:cover;">
+                <div class="split-side body-side">
+                    <video class="bg-video" autoplay muted loop playsinline poster="images/heroright.jpg">
+                        <source src="images/vidright4.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
 
-            <div class="hero-content"><img src="images/MoonVenus.svg" alt="Symbol" style="width:150px;height:150px;">
+            <div class="hero-content">
+                <img src="images/MCLogoWhite.svg" alt="Margarita Celeste Moon Venus Astrology Logo" class="hero-logo">
                 <h1 class="text-glow">Margarita Celeste Astrology</h1>
-                <h2 style="font-size: 1.2em;">Where the Ethereal Meets the Embodied</h2>
-                <p>
-                    Welcome to Margarita Celeste Astrology. Where ancient celestial wisdom meets embodied, heartfelt transformation. Journey with me through the stars, the body, and the soul — combining traditional astrology with Jungian psychology, archetypal activations, tarot, and sensual embodiment practices. Let’s awaken your inner goddess and craft your sacred path with astrology as your guide.
-                </p>
-                <div class="cta-buttons">
-                    <a href="#contact" class="cta-btn cta-btn-primary">Book a Reading</a>
-                    <a href="#workshops" class="cta-btn cta-btn-secondary">Explore Workshops</a>
-                    <a href="#blog" class="cta-btn cta-btn-primary">Read the Blog</a>
+                <div class="hero-details-desktop">
+                    <h2>Where the Ethereal Meets the Embodied</h2>
+                    <p>
+                        Unlock the wisdom of the stars to awaken your inner goddess and command your sacred path. Journey with me through the stars, the body, and the soul—combining traditional astrology with Jungian psychology and sensual embodiment practices.<!-- also appears again below  -->
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="#services" class="cta-btn cta-btn-primary">Book a Reading</a>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <!-- 2. About Margarita Celeste -->
-        <section id="about" class="container" style="padding:50px 0 150px 0; background: linear-gradient(to right, #442034 35%, #450f0f 65%);">
-            <h2 style="color: var(--color-spirit); font-size:1.3em; ">About Margarita Celeste</h2>
-            <p style="font-size: 1.125rem; font-weight: 300; margin-bottom: 2rem; gap: 0.5rem;">
-                Margarita Celeste is an embodied astrologer, Jungian therapist, and conscious relationships sacred blending ancient astrological wisdom with modern somatic and psychological practices.<br>With training in Traditional Astrology, Jungian depth psychology, Tantra, and yoga, Margarita offers a powerful, feminine, temple-like experience.
-            </p>
-            <div class="twocolumn"  >
-                       <div style="background-image: url('images/marg.jpg'); width: 300px; height: 300px; background-size: cover; background-position: center; border-radius: 50%; overflow: hidden; margin: 0 auto;"></div>
-                
-            <div class="card" style="background-color: #331313c6;">
-                <h3 style="font-size: 2rem; color: var(--color-body); margin-bottom: 1rem; ">Trainings & Lineage</h3>
-                <ul style="list-style: none; padding: 0; text-align: left; font-size: 1.125rem; font-weight: 300; display: flex; flex-direction: column; gap: 0.5rem;">
-                    <li style="display: flex; align-items: center;"><span style="color: var(--color-body); margin-right: 0.75rem;">&bull;</span> Diploma in Traditional Astrology</li>
-                    <li style="display: flex; align-items: center;"><span style="color: var(--color-body); margin-right: 0.75rem;">&bull;</span> Jungian Psychology Practitioner</li>
-                    <li style="display: flex; align-items: center;"><span style="color: var(--color-body); margin-right: 0.75rem;">&bull;</span> Certified Yoga Teacher (India)</li>
-                    <li style="display: flex; align-items: center;"><span style="color: var(--color-body); margin-right: 0.75rem;">&bull;</span> School of Intuition & Healing alumna</li>
-                    <li style="display: flex; align-items: center;"><span style="color: var(--color-body); margin-right: 0.75rem;">&bull;</span> Embodiment & Tantra Immersion</li>
-                </ul>
+           
+        </section>
+        <div class="hero-details-mobile">
+            <h2>Where the Ethereal Meets the Embodied</h2>
+            <p>Unlock the wisdom of the stars to awaken your inner goddess and command your sacred path. Journey with me through the stars, the body, and the soul—combining traditional astrology with Jungian psychology and sensual embodiment practices.</p>
+            <div class="cta-buttons">
+                <a href="#services" class="cta-btn cta-btn-primary">Book a Reading</a>
             </div></div>
-            <p style="font-size: 1.125rem; font-weight: 300; margin-top: 2rem;">
-                Margarita’s festival & retreat work includes Spirit Fest, Hedone, Retreat Yourself, Dhganti Fest, and more.
-                <br><br>
-            </p>
-        </section>
 
-        <!-- 3. Astrology Services -->
-        <section id="services" class="container" style="width: 100%; background-image: url(images/heroleft.jpg); background-size: cover; background-position: center; background-attachment: fixed; padding:50px 0 150px 0;">
-            <h2 style="color: var(--color-spirit); text-shadow: 0 0 4px #0e131e, 0 0 16px #000;">Astrology Services</h2>
-            
-            <div class="card" style="width: 75%; margin: auto; background-color: rgba(48, 26, 52, 0.8); backdrop-filter: blur(10px); 
-            -webkit-backdrop-filter: blur(10px);">
-                <h3 style="font-size: 2rem; color: var(--color-body); margin-bottom: 1.5rem;">Readings & Pricing</h3>
-                <div class="table-container">
-                    <table class="services-table">
-                        <thead>
-                            <tr>
-                                <th>Service</th>
-                                <th>Duration</th>
-                                <th>Unprepared Price</th>
-                                <th>Prepared Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td data-label="Service">Natal Reading</td>
-                                <td data-label="Duration">60 min</td>
-                                <td data-label="Unprepared Price">R708 / $78</td>
-                                <td data-label="Prepared Price">R880 / $88</td>
-                            </tr>
-                            <tr>
-                                <td data-label="Service">Natal Reading</td>
-                                <td data-label="Duration">90 min</td>
-                                <td data-label="Unprepared Price">R1080 / $108</td>
-                                <td data-label="Prepared Price">R1380 / $138</td>
-                            </tr>
-                            <tr>
-                                <td data-label="Service">Year Ahead Forecast</td>
-                                <td data-label="Duration">60 min</td>
-                                <td data-label="Unprepared Price">R708 / $78</td>
-                                <td data-label="Prepared Price">R880 / $88</td>
-                            </tr>
-                            <tr>
-                                <td data-label="Service">Relationship Astrology</td>
-                                <td data-label="Duration">Custom</td>
-                                <td data-label="Unprepared Price">Contact</td>
-                                <td data-label="Prepared Price">Contact</td>
-                            </tr> <tr>
-                                <td data-label="Service">Career &amp; Financial Astrology</td>
-                                <td data-label="Duration">Custom</td>
-                                <td data-label="Unprepared Price">Contact</td>
-                                <td data-label="Prepared Price">Contact</td>
-                            </tr> <tr>
-                                <td data-label="Service">Sensuality &amp; Eros Astrology</td>
-                                <td data-label="Duration">Custom</td>
-                                <td data-label="Unprepared Price">Contact</td>
-                                <td data-label="Prepared Price">Contact</td>
-                            </tr> <tr>
-                                <td data-label="Service">Astrocartography &amp; Electional Astrology</td>
-                                <td data-label="Duration">Custom</td>
-                                <td data-label="Unprepared Price">Contact</td>
-                                <td data-label="Prepared Price">Contact</td>
-                            </tr> <tr>
-                                <td data-label="Service">Children's Charts</td>
-                                <td data-label="Duration">Custom</td>
-                                <td data-label="Unprepared Price">Contact</td>
-                                <td data-label="Prepared Price">Contact</td>
-                            </tr>
+        <section id="about" class="section-bg-dark section-padding-large">
+            <div class="container">
+                <div class="twocolumn">
+                    <h2 style="color: var(--color-spirit);">About Margarita Celeste</h2>
+                    <div class="about-image" style="background-image: url('images/MargaritaAbout.jpg');" role="img" aria-label="Margarita Celeste profile picture"></div>
+                    <div class="about-content">
+                        <p class="u-text-lead" style="max-width: 900px; margin:0;">
+                            Margarita Celeste is an embodied astrologer, Jungian therapist, and conscious relationships guide.<br>She sacredly blends ancient astrological wisdom with modern somatic and psychological practices. With training in Traditional Astrology, Jungian depth psychology, Tantra, and yoga, Margarita offers a powerful, feminine, temple-like experience.
+                        </p>
+                        <div class="card section-overlay" style="background-color: var(--color-body-dark); text-align: center; max-width: 900px;"> <h3 style="color: var(--color-spirit); margin-top: 0;">Trainings & Lineage</h3>
+                            <ul class="about-list" id="initial-trainings-list" style="text-align: left; margin: 0 ; width: fit-content;">
+                                <li>&bull;&nbsp; Diploma in Traditional Astrology<span class="institution-details"> (3 yrs) Rod Suskin School of Astrology</span></li>
+                                <li>&bull;&nbsp; Jungian Psychology Practitioner<span class="institution-details"> South African Association of Jungian Analysts</span></li>
+                                <li>&bull;&nbsp; Certified Yoga Teacher (India)<span class="institution-details"> (200 hrs) Rishikul Yogshala, Rishikesh, India</span></li>
+                                <li>&bull;&nbsp; Int. School of Intuition & Healing alumna<span class="institution-details"> Intermediate Tarot Reading</span></li>
+                                <li>&bull;&nbsp; Embodiment & Tantra Immersion<span class="institution-details"> Liberating Love Collective, Koh Pangan, Thailand</span></li>
+                            </ul>
+                            <div id="additional-trainings" class="expandable-content">
+                                <ul class="about-list" style="margin-top: 0.75rem; text-align: left; margin: 0.75rem auto 0 auto;">
+                                    <li>&bull;&nbsp; 12 Steps to Individuation <span class="institution-details2">Centre of Applied Jungian Studies</span></li>
+                                    <li>&bull;&nbsp; 50 hr Tantra Hatha Yoga Training <span class="institution-details2">The Practice, Bali, Indonesia</span></li>
+                                    <li>&bull;&nbsp; Yoga & Psychology <span class="institution-details2">Adama Yoga, Koh Pangan, Thailand</span></li>
+                                    <li>&bull;&nbsp; Eros Trauma&ndash;Informed Facilitators Course <span class="institution-details2">Liberating Love Collective, Koh Pangan, Thailand</span></li>
+                                    <li>&bull;&nbsp; Eros Sacred Temple & Play Space Facilitators Course <span class="institution-details2">Liberating Love Collective, Koh Pangan, Thailand</span></li>
+                                    <li>&bull;&nbsp; Level One Training <span class="institution-details2">International School of Temple Arts, South Africa</span></li>
+                                    <li>&bull;&nbsp; Introduction to Tantra <span class="institution-details2">Urban Sanctuary, South Africa</span></li>
+                                    <li>&bull;&nbsp; Tantra from the Heart workshops <span class="institution-details2">Samma Karuna, Koh Pangan, Thailand</span></li>
+                                    <li>&bull;&nbsp; Reiki Level One <span class="institution-details2">Magickal Gem, South Africa</span></li>
+                                    <li>&bull;&nbsp; 8 Week Mindfulness Based Family Programme <span class="institution-details2">MBSR Centre, South Africa</span></li>
+                                </ul>
+                            </div>
+                            <button id="expand-trainings-btn" class="expand-btn" aria-expanded="false" aria-controls="additional-trainings">
+                                Show more
+                            </button>
+                        </div>
 
-                        </tbody>
-                    </table>
-                </div>
-                <div style="margin-top: 2rem;">
-                    <h4 style="font-size: 2rem; color: var(--color-spirit); margin-bottom: 1rem;">Mentoring Packages</h4>
-                    <ul style="list-style: disc; padding: 0; text-align: left; font-size: 1.125rem; font-weight: 300; margin: auto; max-width:fit-content;">
-                        <li>Monthly deep-dive sessions</li>
-                        <li>Quarterly check-ins</li>
-                        <li>Bi-annual / annual coaching</li>
-                    </ul>
-                    <p style="font-size: 1rem; font-weight: 300; margin-top: 1rem; font-style: italic;">Includes personalized written forecasts and embodied practices.</p>
-                </div>
-            </div>
-        </section>
+                        <h3 style="color: var(--color-spirit); margin:0 auto; margin-top: 3rem; width:100%; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3); border-bottom: 1px solid var(--color-spirit);  max-width: 900px; padding-bottom: 0.5rem;">Festivals &amp; Retreats</h3>
+                        <p style="margin: 0;">Margarita’s festival &amp; retreat work includes:</p>
+                        <div style="display: flex; max-width: 900px; margin: 0 auto; justify-content: space-evenly; flex-wrap: wrap; gap:2rem;">
 
-        <!-- 4. Embodied Astrology & Workshops -->
-        <section id="workshops" class="container" style="background-color: #450f0f; padding:50px 0 150px 0; background-image: url('images/embodi.png'); background-size:contain; background-repeat: no-repeat; background-position:left;">
-            <h2 style="color: var(--color-body); text-shadow: 0 0 4px #0e131e, 0 0 16px #000;">Embodied Astrology & Workshops</h2>
-            <p style="font-size: 1.125rem; font-weight: 300; margin-bottom: 2rem; text-shadow: 0 0 4px #0e131e, 0 0 16px #000;">
-                Astrology is meant to be felt as much as understood. <br>These workshops combine astrology with movement, breathwork, parts work, and ritual to fully embody your cosmic blueprint.
-            </p>
-            <div class="card" style="background-color: #331313c6; width: 50%; margin: auto; backdrop-filter: blur(10px); 
-            -webkit-backdrop-filter: blur(10px);">
-                <h3 style="font-size: 2rem; color: var(--color-spirit); margin-bottom: 1rem;">Workshops Include</h3>
-                <ul style="list-style: none; padding: 0; text-align: left; font-size: 1.125rem; font-weight: 300; display: flex; flex-direction: column; gap: 0.5rem; margin: auto; max-width:fit-content;">
-                    <li style="display: flex; align-items: center;"><span style="color: var(--color-spirit); margin-right: 0.75rem;">&bull;</span> Venus & Sensuality Archetypes</li>
-                    <li style="display: flex; align-items: center;"><span style="color: var(--color-spirit); margin-right: 0.75rem;">&bull;</span> Moon Mysteries & Emotional Embodiment</li>
-                    <li style="display: flex; align-items: center;"><span style="color: var(--color-spirit); margin-right: 0.75rem;">&bull;</span> Dark Eros: Shadow & Desire</li>
-                    <li style="display: flex; align-items: center;"><span style="color: var(--color-spirit); margin-right: 0.75rem;">&bull;</span> Parts Work & Astrology Integration</li>
-                </ul>
-                <p style="font-size: 1rem; font-weight: 300; font-style: italic; margin-top: 1.5rem;">Workshops available online and in person.</p>
-            </div>
-        </section>
+                            
+                        <img src="images/logo-spiritfest.png" alt="Spiritfest logo" width="100" height="100" loading="lazy">
+                                <img src="images/logo-retreat.png" alt="Retreat Yourself logo" width="100" height="100" loading="lazy">
+                                <img src="images/logo-hedone.png" alt="Hedone Festival logo" width="100" height="100" loading="lazy">
+                                <img src="images/logo-shanti.png" alt="Shanti Fest logo" width="100" height="100" loading="lazy">
+                                <img src="images/logo-bodhi.png" alt="Bodhi Kaya logo" width="100" height="100" loading="lazy">
+                                <img src="images/logo-bazique.png" alt="Bazique Festival logo" width="100" height="100" loading="lazy">
 
-        <!-- 5. Courses & Pre-Recorded Offerings -->
-        <section id="courses" class="container" style="padding:50px 20% 150px 20%;">
-            <h2 style="color: var(--color-spirit);">Courses & Pre-Recorded Offerings</h2>
-            <p style="font-size: 1.125rem; font-weight: 300;">
-                Deepen your practice at your own pace with courses like Embodied Astrology Essentials, Dark Eros, and Venus Archetypes. Includes guided meditations, written materials, and lifetime access.
-            </p>
-        </section>
-
-        <!-- 6. Tarot, Yoga & Ritual Offerings -->
-        <section id="tarot" class="container" style="padding:50px 20% 150px 20%; background-image: url('images/ritual.jpg'); background-size:cover;background-position: center; background-attachment: fixed;">
-            <h2 style="color: var(--color-body); text-shadow: 0 0 4px #0e131e, 0 0 16px #000;">Tarot, Yoga & Ritual Offerings</h2>
-            <p style="font-size: 1.125rem; font-weight: 300; text-shadow: 0 0 4px #0e131e, 0 0 16px #000;">
-                Personalized tarot readings, sensual yoga journeys, tantric temple rituals, and sacred ceremonies designed to awaken your inner wisdom and sensual power.
-            </p>
-        </section>
-
-        <!-- 7. Testimonials -->
-        <section id="testimonials" class="container" style="padding:50px 50px 150px 50px; background-color: #450f0f;">
-            <h2 style="color: var(--color-spirit);">Testimonials</h2>
-            <div class="grid-3-cols">
-                <div class="card" style="background-color: #331313c6;">
-                    <p style="font-size: 1.125rem; font-weight: 300; font-style: italic;">“Margarita’s readings are transformational — blending deep astrology with heart and body.”</p>
-                </div>
-                <div class="card" style="background-color: #331313c6;">
-                    <p style="font-size: 1.125rem; font-weight: 300; font-style: italic;">“Her workshops opened me to new levels of sensuality and self-awareness.”</p>
-                </div>
-                <div class="card" style="background-color: #331313c6;">
-                    <p style="font-size: 1.125rem; font-weight: 300; font-style: italic;">“A powerful guide for anyone seeking sacred connection with the stars and self.”</p>
+                        
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
         
-        <!-- 8. Festivals & Retreats -->
-        <section id="festivals" class="container"  style="padding:50px 50px 150px 50px; ">
-            <h2 style="color: var(--color-body);">Festivals & Retreats</h2>
-            <p style="font-size: 1.125rem; font-weight: 300; margin-bottom: 2rem;">
-                Photos and stories from international festivals and retreats where Margarita has shared her work, along with info on upcoming events.
-            </p>
-            <div class="grid-4-cols">
-                <div><img src="images/logo-spiritfest.png" alt="Spiritfest logo" width="180" height="180"></div>
-                <div><img src="images/logo-retreat.png" alt="Retreat Yourself logo" width="180" height="180"></div>
-                <div><img src="images/logo-hedone.png" alt="Hedone Festival logo" width="180" height="180"></div>
-                <div><img src="images/logo-shanti.png" alt="Shanti Fest logo" width="180" height="180"></div>
+
+        <section id="services" class="section-bg-image section-padding-large" style="background-image: url(images/heroleft.jpg);">
+            <div class="container">
+                <h2 style="color: var(--color-spirit);" class="section-header-glow">Astrology Services</h2>
+                
+                <div id="services-card" class="card section-overlay" style="max-width: 900px; margin: auto;">
+                    <div class="services-header">Select Currency:
+                        <div class="currency-toggle">
+                            <button class="currency-btn active" data-currency="ZAR">ZAR</button>
+                            <button class="currency-btn" data-currency="USD">USD</button>
+                        </div>
+                    </div>
+                    <div class="service-list" data-currency-view="ZAR">
+                        <!-- Service Item 1 -->
+                        <div class="service-item">
+                            <div class="service-description">
+                                <h4>Natal Reading (60min)</h4>
+                                <p>A foundational reading exploring your birth chart's core themes, strengths, and challenges.</p>
+                            </div>
+                            <div class="service-pricing">
+                                <div class="price-option">
+                                    <div class="price-header">Refined <span class="info-icon" data-popup-id="refined-info">?</span></div>
+                                    <div class="price-amount"><span class="price-zar">R880</span><span class="price-usd">$88</span></div>
+                                </div>
+                                <div class="price-option">
+                                    <div class="price-header">Intuitive <span class="info-icon" data-popup-id="intuitive-info">?</span></div>
+                                    <div class="price-amount"><span class="price-zar">R780</span><span class="price-usd">$78</span></div>
+                                </div>
+                            </div>
+                            <div class="service-action">
+                                <a href="#contact" class="cta-btn cta-btn-secondary" data-service="Natal Reading (60min)">Book Now</a>
+                            </div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-description">
+                                <h4>Natal Reading (90min)</h4>
+                                <p>A deeper foundational reading exploring your birth chart's core themes, strengths, and challenges.</p>
+                            </div>
+                            <div class="service-pricing">
+                                <div class="price-option">
+                                    <div class="price-header">Refined <span class="info-icon" data-popup-id="refined-info">?</span></div>
+                                    <div class="price-amount"><span class="price-zar">R1380</span><span class="price-usd">$138</span></div>
+                                </div>
+                                <div class="price-option">
+                                    <div class="price-header">Intuitive <span class="info-icon" data-popup-id="intuitive-info">?</span></div>
+                                    <div class="price-amount"><span class="price-zar">R1170</span><span class="price-usd">$117</span></div>
+                                </div>
+                            </div>
+                            <div class="service-action">
+                                <a href="#contact" class="cta-btn cta-btn-secondary" data-service="Natal Reading (90min)">Book Now</a>
+                            </div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-description">
+                                <h4>Year Ahead Forecast</h4>
+                                <p>A 60 minute forecast reading to gain insights into the upcoming year.</p>
+                            </div>
+                            <div class="service-pricing">
+                                <div class="price-option">
+                                    <div class="price-header">Refined <span class="info-icon" data-popup-id="refined-info">?</span></div>
+                                    <div class="price-amount"><span class="price-zar">R880</span><span class="price-usd">$88</span></div>
+                                </div>
+                                <div class="price-option">
+                                    <div class="price-header">Intuitive <span class="info-icon" data-popup-id="intuitive-info">?</span></div>
+                                    <div class="price-amount"><span class="price-zar">R780</span><span class="price-usd">$78</span></div>
+                                </div>
+                            </div>
+                            <div class="service-action">
+                                <a href="#contact" class="cta-btn cta-btn-secondary" data-service="Year Ahead Forecast">Book Now</a>
+                            </div>
+                        </div>
+                        <!-- Service Item 2 -->
+                        <div class="service-item">
+                            <div class="service-description">
+                                <h4>Individual Development</h4>
+                                <p>60 minute 'deep dive' into your unique relationship strengths, areas of challenge & overall patterns.</p>
+                            </div>
+                            <div class="service-pricing">
+                                <div class="price-option">
+                                    <div class="price-header">Refined <span class="info-icon" data-popup-id="refined-info">?</span></div>
+                                    <div class="price-amount"><span class="price-zar">R880</span><span class="price-usd">$88</span></div>
+                                </div>
+                                <div class="price-option">
+                                    <div class="price-header">Intuitive <span class="info-icon" data-popup-id="intuitive-info">?</span></div>
+                                    <div class="price-amount"><span class="price-zar">R780</span><span class="price-usd">$78</span></div>
+                                </div>
+                            </div>
+                            <div class="service-action">
+                                <a href="#contact" class="cta-btn cta-btn-secondary" data-service="Individual Development">Book Now</a>
+                            </div>
+                        </div>
+                        <!-- Service Item 3 -->
+                        <div class="service-item">
+                            <div class="service-description">
+                                <h4>Relationship Astrology</h4>
+                                <p>Explore the dynamics between two charts for deeper understanding in romantic, familial, or business partnerships.</p>
+                            </div>
+                            <div class="service-pricing">
+                                <div class="price-option">
+                                    <div class="price-header">Refined <span class="info-icon" data-popup-id="refined-info">?</span></div>
+                                    <div class="price-amount"><span class="price-zar">R1400</span><span class="price-usd">$140</span></div>
+                                </div>
+                                <div class="price-option">
+                                    <div class="price-header">Intuitive <span class="info-icon" data-popup-id="intuitive-info">?</span></div>
+                                    <div class="price-amount"><span class="price-zar">R1200</span><span class="price-usd">$120</span></div>
+                                </div>
+                            </div>
+                            <div class="service-action">
+                                <a href="#contact" class="cta-btn cta-btn-secondary" data-service="Relationship Astrology">Book Now</a>
+                            </div>
+                        </div>
+                        <!-- Service Item 4 -->
+                        
+                        <div class="service-item">
+                            <div class="service-description">
+                                <h4>Career &amp; Financial Astrology</h4>
+                                <p>60 minute session on your career and financial prospects.</p>
+                            </div>
+                            <div class="service-pricing">
+                                <div class="price-option">
+                                    <div class="price-header">Refined <span class="info-icon" data-popup-id="refined-info">?</span></div>
+                                    <div class="price-amount"><span class="price-zar">R880+</span><span class="price-usd">$88+</span></div>
+                                </div>
+                                <div class="price-option">
+                                    <div class="price-header">Intuitive <span class="info-icon" data-popup-id="intuitive-info">?</span></div>
+                                    <div class="price-amount"><span class="price-zar">R780+</span><span class="price-usd">$78+</span></div>
+                                </div>
+                            </div>
+                            <div class="service-action">
+                                <a href="#contact" class="cta-btn cta-btn-secondary" data-service="Career & Financial Astrology">Book Now</a>
+                            </div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-description">
+                                <h4>Sensuality &amp; Eros Astrology</h4>
+                                <p>60 minute session on your sensual and romantic prospects.</p>
+                            </div>
+                            <div class="service-pricing">
+                                <div class="price-option">
+                                    <div class="price-header">Refined <span class="info-icon" data-popup-id="refined-info">?</span></div>
+                                    <div class="price-amount"><span class="price-zar">R880+</span><span class="price-usd">$88+</span></div>
+                                </div>
+                                <div class="price-option">
+                                    <div class="price-header">Intuitive <span class="info-icon" data-popup-id="intuitive-info">?</span></div>
+                                    <div class="price-amount"><span class="price-zar">R780+</span><span class="price-usd">$78+</span></div>
+                                </div>
+                            </div>
+                            <div class="service-action">
+                                <a href="#contact" class="cta-btn cta-btn-secondary" data-service="Sensuality & Eros Astrology">Book Now</a>
+                            </div>
+                        </div>
+                        <!-- Service Item 5 -->
+                        <div class="service-item">
+                            <div class="service-description">
+                                <h4>Children's Charts</h4>
+                                <p>A written report offering guidance on understanding and nurturing your child's unique potential.</p>
+                            </div>
+                            <div class="service-pricing">
+                                <div class="price-option">
+                                    <div class="price-header">Written Report</span></div>
+                                    <div class="price-amount"><span class="price-zar">R980</span><span class="price-usd">$98</span></div>
+                                </div>
+                            </div>
+                            <div class="service-action">
+                                <a href="#contact" class="cta-btn cta-btn-secondary" data-service="Children's Charts">Book Now</a>
+                            </div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-description">
+                                <h4>Astrocartography Electional Astrology</h4>
+                                <p>A written report exploring the astrological influences on your location and timing for important events.</p>
+                            </div>
+                            <div class="service-pricing">
+                                <div class="price-option">
+                                    <div class="price-header">Written Report</span></div>
+                                    <div class="price-amount"><span class="price-zar">R250 per city</span><span class="price-usd">$25 per city</span></div>
+                                </div>
+                           </div>
+                            <div class="service-action">
+                                <a href="#contact" class="cta-btn cta-btn-secondary" data-service="Astrocartography Electional Astrology">Book Now</a>
+                            </div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-description">
+                                <h4>Mentoring Packages</h4>
+                                <p>Monthly deep-dive sessions, quarterly check-ins or annual/bi-annual coaching.Includes personalized written forecasts and embodied practices.</p>
+                            </div>
+                            <div class="service-pricing">
+                                <div class="price-option">
+                                    <div class="price-header">Hourly Rate</span></div>
+                                    <div class="price-amount"><span class="price-zar">R580/hr</span><span class="price-usd">$58/hr</span></div>
+                                </div>
+                                
+                            </div>
+                            <div class="service-action">
+                                <a href="#contact" class="cta-btn cta-btn-secondary" data-service="Mentoring Packages">Book Now</a>
+                            </div>
+                        </div>
+                    
+                    
+                    </div>
+                    <div style="margin-top: 3rem; text-align: left; max-width: 700px; margin-left: auto; margin-right: auto; padding: 1.5rem; ">
+                        <h4 style="color: var(--color-spirit); text-align: center; margin-top: 0;">Please Note</h4>
+                        <ul style="list-style-type: disc; padding-left: 20px; font-size: 1rem; opacity: 0.9; margin-bottom: 0;">
+                            <li>All readings are conducted online via Zoom. Face-to-face readings can be arranged in Cape Town between October and May.</li>
+                            <li>Written reports and/or charts of your reading may be requested for an additional fee.</li>
+                            <li>Accurate birth details (date, time, and location) are required for all readings. Please inform me if you do not have this information.</li>
+                        </ul>
+                    </div>
+
+                    
+                </div>
             </div>
         </section>
 
-        <!-- 9. Blog -->
-        <section id="blog" class="container"  style="padding:50px 0 150px 0; background-color: #450f0f; ">
-            <h2 style="color: var(--color-spirit);">Blog & Writing</h2>
-            <p style="font-size: 1.125rem; font-weight: 300; margin-bottom: 2rem;">
-                Insights on astrology, embodiment, sacred sexuality, and conscious relating — monthly horoscopes, archetypal deep dives, and ritual guides.
-            </p>
-            <div style="display: flex; flex-direction: column; gap: 3rem; text-align: left; max-width: fit-content; margin: 0 auto;">
-                <article class="blog-post">
-                    <h3 style="color: var(--color-body);">Monthly Horoscopes: Unlocking Your September Path</h3>
-                    <p style="font-size: 0.875rem; color: #888888; margin-bottom: 1rem;">Published September 22, 2025</p>
-                    <p>
-                        As the seasons shift, so too do the cosmic energies guiding our lives. This month, we dive deep into the alignments of Virgo season, focusing on... <a href="#">Read more</a>
-                    </p>
-                </article>
-                <article class="blog-post">
-                    <h3 style="color: var(--color-body);">Venus Retrograde: The Art of Sacred Desire</h3>
-                    <p style="font-size: 0.875rem; color: #888; margin-bottom: 1rem;">Published August 15, 2025</p>
-                    <p>
-                        When Venus begins her backward dance, it’s a powerful invitation to re-evaluate our relationships, values, and sensual self. Instead of dreading this period... <a href="#">Read more</a>
-                    </p>
-                </article>
+        <!-- Popups and Overlay -->
+        <div id="popup-overlay" style="position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 100; display: none;"></div>
+
+        <div id="refined-info" class="info-popup">
+            <button class="close-popup" aria-label="Close">&times;</button>
+            <h4>Refined Reading</h4>
+            <p>A detailed, structured analysis based on your birth chart. We explore specific questions and themes with a focus on practical application and understanding. This is a more prepared, in-depth session.</p>
+        </div>
+
+        <div id="intuitive-info" class="info-popup">
+            <button class="close-popup" aria-label="Close">&times;</button>
+            <h4>Intuitive Reading</h4>
+            <p>A spontaneous, flowing session guided by the energies present in the moment. We rely on intuition and the immediate connection to your chart, allowing insights to emerge organically without extensive prior preparation.</p>
+        </div>
+
+        <section id="workshops" class="section-bg-dark section-padding-large" style="background-image: url('images/EmbodiedBG.jpg'); background-size:100%; background-repeat: no-repeat; background-position:center top; background-color: #000;">
+            <div class="container">
+                 <h2  class="section-header-glow" style="color: var(--color-spirit);">Embodied Astrology Workshops</h2>
+                <p class="u-text-lead section-header-glow" style="max-width: 900px; margin: 0 auto 2rem;">
+                    Astrology is meant to be felt as much as understood. These workshops combine astrology with movement, breathwork, parts work, and ritual to fully embody your cosmic blueprint.
+                </p>
+                <div class="card section-overlay" style="max-width: fit-content ; margin: 0 auto; background-color: var(--color-body-dark); padding: 2rem; height: fit-content;padding-bottom: 3rem;">
+                    <h3 style="color: var(--color-spirit); margin-top: 0;">Workshops Include</h3>
+                    <ul style="list-style-type: disc; padding-left: 20px; font-size: 1rem; opacity: 0.9; margin-bottom: 0; text-align: left;">
+                        <li>Moon Mysteries &amp; Emotional Embodiment</li>
+                        <li>Venus &amp; Sensuality Archetypes</li>
+                        <li>Mars &amp; Eros - Sexuality</li>
+                        <li>Mercury &amp; Communication; Using the Voice</li>
+                    </ul>
+                    <p style="font-size: 1rem; font-weight: 300; font-style: italic; margin-top: 1.5rem;">Workshops available online and in person.</p><br />
+                    <a href="#contact" class="cta-btn cta-btn-secondary" data-service="Workshop Enquiry" style="margin-top: 2.5rem;">Enquire Now</a>
+                </div>
             </div>
         </section>
 
-        <!-- 10. Contact & Booking -->
-        <section id="contact" class="container"  style="padding:50px 0 150px 0;">
-            <h2 style="color: var(--color-body);">Contact & Booking</h2>
-            <p style="font-size: 1.125rem; font-weight: 300; margin-bottom: 2rem;">
-                Ready to begin your cosmic journey? Book a reading or workshop, or send a message to connect. I look forward to walking this path with you.
-            </p>
-            <div class="cta-buttons">
-                <a href="mailto:margarita@celesteastrology.com" class="cta-btn cta-btn-primary">Send a Message</a>
-                <a href="#services" class="cta-btn cta-btn-secondary">Book Now</a>
+        <section id="courses" class="section-padding-large" style="background-image: linear-gradient(#162032, #4c4e70);">
+            <div class="container">
+                <h2 style="color: var(--color-spirit);">Courses</h2>
+                <p class="u-text-lead" style="max-width: 900px; margin: 0 auto 3rem auto;">
+                    Deepen your astrological knowledge at your own pace with these comprehensive courses, hosted on the acclaimed International School of Intuition & Healing platform. Each course is designed to empower you with the wisdom of the stars, offering lifetime access to transform your understanding of yourself and the cosmos.
+                </p>
+                <div class="grid-3-cols" style="max-width: 1100px; margin: auto;">
+                    <div class="card section-overlay" style="background-color: #172b3c;">
+                        <h3 style="color: var(--color-spirit); margin-top: 0;">Astrology for Self-Empowerment</h3>
+                        <p>Begin your journey into the heart of astrology. This foundational course teaches you to read birth charts, understand planetary influences, and unlock your unique potential for profound self-awareness.</p><br />
+                        <a href="https://schoolofintuitionandhealing.com/accredited-courses/astrology/astrology-for-self-empowerment/" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-secondary" style="margin-top: 20rem;">Learn More</a>
+                    </div>
+                    <div class="card section-overlay" style="background-color: #172b3c;">
+                        <h3 style="color: var(--color-spirit); margin-top: 0;">The Power of Prediction</h3>
+                        <p>Advance your skills by learning the art of astrological forecasting. Master transits, progressions, and other predictive techniques to navigate life's cycles with confidence and foresight.</p><br />
+                        <a href="https://schoolofintuitionandhealing.com/accredited-courses/astrology/the-power-of-prediction/" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-secondary" style="margin-top: 20rem;">Learn More</a>
+                    </div>
+                    <div class="card section-overlay" style="background-color: #172b3c;">
+                        <h3 style="color: var(--color-spirit); margin-top: 0;">The Astrology of Love</h3>
+                        <p>Explore the cosmic dynamics of connection. This course delves into relationship astrology, teaching you to analyze compatibility and synastry to foster deeper, more conscious partnerships.</p><br />
+                        <a href="https://schoolofintuitionandhealing.com/accredited-courses/astrology/the-astrology-of-love/" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-secondary" style="margin-top: 20rem;">Learn More</a>
+                    </div>
+                </div>
             </div>
         </section>
+
+        <section id="tarot" class="section-bg-image section-padding-large" style="background-image: url('images/ritual.jpg');">
+            <div class="container">
+                <h2 style="color: var(--color-spirit);" class="section-header-glow">Tarot, Yoga & Ritual Offerings</h2>
+                <div id="tarot-services-card" class="card section-overlay" style="max-width: 900px; margin: auto;">
+                    <div class="services-header">Select Currency:
+                        <div class="currency-toggle">
+                            <button class="currency-btn active" data-currency="ZAR">ZAR</button>
+                            <button class="currency-btn" data-currency="USD">USD</button>
+                        </div>
+                    </div>
+                    <div class="service-list" data-currency-view="ZAR">
+                        <!-- Tarot Readings -->
+                        <div class="service-item">
+                            <div class="service-description">
+                                <h4>Specific Issue Tarot Reading</h4>
+                                <p>A 6-card reading (40-60 min) focused on a specific issue, helping you find clarity and solutions.</p>
+                            </div>
+                            <div class="service-pricing">
+                                <div class="price-option">
+                                    <div class="price-amount"><span class="price-zar">R450</span><span class="price-usd">$45</span></div>
+                                </div>
+                            </div>
+                            <div class="service-action"><a href="#contact" class="cta-btn cta-btn-secondary" data-service="Specific Issue Tarot Reading">Book Now</a></div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-description">
+                                <h4>General Tarot Reading</h4>
+                                <p>A 12-card reading (40-60 min) using the 12 Astrological Houses to interpret various life issues.</p>
+                            </div>
+                            <div class="service-pricing">
+                                <div class="price-option">
+                                    <div class="price-amount"><span class="price-zar">R500</span><span class="price-usd">$50</span></div>
+                                </div>
+                            </div>
+                            <div class="service-action"><a href="#contact" class="cta-btn cta-btn-secondary" data-service="General Tarot Reading">Book Now</a></div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-description">
+                                <h4>Relationship Tarot Reading</h4>
+                                <p>A 10-card spread (40-60 min) exploring the dynamics between you and another person.</p>
+                            </div>
+                            <div class="service-pricing">
+                                <div class="price-option">
+                                    <div class="price-amount"><span class="price-zar">R500</span><span class="price-usd">$50</span></div>
+                                </div>
+                            </div>
+                            <div class="service-action"><a href="#contact" class="cta-btn cta-btn-secondary" data-service="Relationship Tarot Reading">Book Now</a></div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-description">
+                                <h4>Yes/No Tarot Reading</h4>
+                                <p>A quick spread for a difficult decision. Email your question for a timely response.</p>
+                            </div>
+                            <div class="service-pricing">
+                                <div class="price-option">
+                                    <div class="price-amount"><span class="price-zar">R300</span><span class="price-usd">$30</span></div>
+                                </div>
+                            </div>
+                            <div class="service-action"><a href="mailto:margarita@celesteastrology.com" class="cta-btn cta-btn-secondary" data-service="Yes/No Tarot Reading">Book Now</a></div>
+                        </div>
+                        <!-- Other Offerings -->
+                        <div class="service-item">
+                            <div class="service-description">
+                                <h4>Sensual Yoga Journeys</h4>
+                                <p>A private yoga experience to reconnect with your body's wisdom through fluid movement and breath.</p>
+                            </div>
+                            <div class="service-pricing">
+                                <div class="price-option">
+                                    <div class="price-header">Per Hour</div>
+                                    <div class="price-amount"><span class="price-zar">R500</span><span class="price-usd">$50</span></div>
+                                </div>
+                            </div>
+                            <div class="service-action"><a href="#contact" class="cta-btn cta-btn-secondary" data-service="Sensual Yoga Journeys">Book Now</a></div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-description">
+                                <h4>Tantric / Sensual Temple Facilitation</h4>
+                                <p>Create a sacred space for exploration and healing through guided tantric principles and ritual.</p>
+                            </div>
+                            <div class="service-pricing">
+                                <div class="price-option">
+                                    <div class="price-header">Custom</div>
+                                    <div class="price-amount">By Arrangement</div>
+                                </div>
+                            </div>
+                            <div class="service-action"><a href="#contact" class="cta-btn cta-btn-secondary" data-service="Tantric / Sensual Temple Facilitation">Enquire now</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+      
+
+        <section id="blog" class="section-bg-dark section-padding-large">
+            <div class="container">
+                <h2 style="color: var(--color-spirit);">Blog & Writings</h2>
+                <p class="u-text-lead" style="max-width: 900px; margin: 0 auto;">
+                    Insights on astrology, embodiment, sacred sexuality, and conscious relating — monthly horoscopes, archetypal deep dives, and ritual guides.
+                </p>
+                <div class="blog-list">
+                    <article class="blog-post">
+                        <a href="blog-post-september-horoscopes.html">
+                            <img src="images/ritual.jpg" alt="Abstract image of a ritual" class="blog-post-image">
+                        </a>
+                        <div>
+                            <h3 style="color: var(--color-body);"><a href="blog-post-september-horoscopes.html">Monthly Horoscopes: Unlocking Your September Path</a></h3>
+                            <span class="date">Published September 22, 2025</span>
+                            <p>
+                                As the seasons shift, so too do the cosmic energies guiding our lives. This month, we dive deep into the alignments of Virgo season, focusing on the practical application of celestial wisdom... <a href="blog-post-september-horoscopes.html" aria-label="Read more about September Horoscopes">Read more</a>
+                            </p>
+                        </div>
+                    </article>
+                    <article class="blog-post">
+                        <a href="blog-post-venus-retrograde.html">
+                            <img src="images/EmbodiedBG.jpg" alt="Abstract cosmic background" class="blog-post-image">
+                        </a>
+                        <div>
+                            <h3 style="color: var(--color-body);"><a href="blog-post-venus-retrograde.html">Venus Retrograde: The Art of Sacred Desire</a></h3>
+                            <span class="date">Published August 15, 2025</span>
+                            <p>
+                                When Venus begins her backward dance, it’s a powerful invitation to re-evaluate our relationships, values, and sensual self. Instead of dreading this period... <a href="blog-post-venus-retrograde.html" aria-label="Read more about Venus Retrograde">Read more</a>
+                            </p>
+                        </div>
+                    </article>
+                </div>
+                <div style="margin-top: 3rem;">
+                    <a href="blog.html" class="cta-btn cta-btn-secondary">View All Writings</a>
+                </div>
+            </div>
+        </section>
+
+                <section id="testimonials" class="section-bg-dark section-padding-large"  style="background-image: linear-gradient(#162032, #4c4e70);">
+            <div class="container">
+                <h2 style="color: var(--color-spirit);">Testimonials</h2>
+                <div class="testimonial-scroller" >
+                    <div class="testimonial-carousel">
+                        <!-- Original Testimonials -->
+                        <div class="card section-overlay" style="background-color: #172b3c;">
+                            <p style="font-size: 1.125rem; font-weight: 300; font-style: italic;">“Loved the teaching style - she nailed it - I would never have imagined been able to understand things  the way I do - when I first saw the natal charts it was all gibersish, now it tells me a story. ”</p>
+                        </div>
+                        <div class="card section-overlay" style="background-color: #172b3c;">
+                            <p style="font-size: 1.125rem; font-weight: 300; font-style: italic;">“Thank you so much for a brilliant course. I really think this could be a prerequisite course to start off any full time astrology course. Once you have the basics down that this course provides, it will be much easier to concentrate on all the other astrology techniques. I highly recommend this course for beginners.”</p>
+                        </div>
+                        <div class="card section-overlay" style="background-color: #172b3c;">
+                            <p style="font-size: 1.125rem; font-weight: 300; font-style: italic;">“Loved it! Margarita is really knowledgable and really offers great examples to make sure the information is understood. I also appreciate that lectures being available to rewatch and the resources that were provided.”</p>
+                        </div>
+                        <div class="card section-overlay" style="background-color: #172b3c;">
+                            <p style="font-size: 1.125rem; font-weight: 300; font-style: italic;">“I wanted to learn more about astrology. Yes! Margarita is a wonderful and knowledgable teacher!!! And so kind and helpful!”</p>
+                        </div>
+                        <div class="card section-overlay" style="background-color: #172b3c;">
+                            <p style="font-size: 1.125rem; font-weight: 300; font-style: italic;">“I love that I know so much more about astrology now. The classes were organized and the sequence allowed us to layer each week. I really appreciated that we had time in class to ask Margarita questions and we had a supportive community where we could ask questions to the group.”</p>
+                        </div>
+                        <!-- Duplicated for infinite scroll effect -->
+                        <div class="card section-overlay" style="background-color: #172b3c;">
+                            <p style="font-size: 1.125rem; font-weight: 300; font-style: italic;">“Loved the teaching style - she nailed it - I would never have imagined been able to understand things  the way I do - when I first saw the natal charts it was all gibersish, now it tells me a story. ”</p>
+                        </div>
+                        <div class="card section-overlay" style="background-color: #172b3c;">
+                            <p style="font-size: 1.125rem; font-weight: 300; font-style: italic;">“Thank you so much for a brilliant course. I really think this could be a prerequisite course to start off any full time astrology course. Once you have the basics down that this course provides, it will be much easier to concentrate on all the other astrology techniques. I highly recommend this course for beginners.”</p>
+                        </div>
+                        <div class="card section-overlay" style="background-color: #172b3c;">
+                            <p style="font-size: 1.125rem; font-weight: 300; font-style: italic;">“Loved it! Margarita is really knowledgable and really offers great examples to make sure the information is understood. I also appreciate that lectures being available to rewatch and the resources that were provided.”</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section-padding-large" style="background-color: var(--color-body-dark);">
+            <div class="container" style="max-width: 700px;">
+                <h2 style="color: var(--color-spirit);">Contact & Booking</h2>
+                <p class="u-text-lead">
+                    Ready to begin your cosmic journey? Book a reading or workshop, or send a message to connect. I look forward to walking this path with you.
+                </p>
+                <form id="contact-form" style="margin-top: 2rem; text-align: left;">
+                    <div class="form-group">
+                        <label for="service-selection">I'm interested in:</label>
+                        <select id="service-selection" name="service" required>
+                            <option value="General Enquiry">General Enquiry</option>
+                            <optgroup label="Astrology Services">
+                                <option value="Natal Reading (60min)">Natal Reading (60min)</option>
+                                <option value="Natal Reading (90min)">Natal Reading (90min)</option>
+                                <option value="Year Ahead Forecast">Year Ahead Forecast</option>
+                                <option value="Individual Development">Individual Development</option>
+                                <option value="Relationship Astrology">Relationship Astrology</option>
+                                <option value="Career & Financial Astrology">Career & Financial Astrology</option>
+                                <option value="Sensuality & Eros Astrology">Sensuality & Eros Astrology</option>
+                                <option value="Children's Charts">Children's Charts</option>
+                                <option value="Astrocartography Electional Astrology">Astrocartography / Electional Astrology</option>
+                                <option value="Mentoring Packages">Mentoring Packages</option>
+                            </optgroup>
+                            <optgroup label="Tarot, Yoga & Rituals">
+                                <option value="Specific Issue Tarot Reading">Specific Issue Tarot Reading</option>
+                                <option value="General Tarot Reading">General Tarot Reading</option>
+                                <option value="Relationship Tarot Reading">Relationship Tarot Reading</option>
+                                <option value="Yes/No Tarot Reading">Yes/No Tarot Reading</option>
+                                <option value="Sensual Yoga Journeys">Sensual Yoga Journeys</option>
+                                <option value="Tantric / Sensual Temple Facilitation">Tantric / Sensual Temple Facilitation</option>
+                            </optgroup>
+                            <optgroup label="Workshops">
+                                <option value="Workshop Enquiry">Workshop Enquiry</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="full-name">Full Name:</label>
+                        <input type="text" id="full-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Contact Number (Optional):</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message:</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Please include any relevant details, like your birth date, time, and location if known."></textarea>
+                    </div>
+                    <button type="submit" class="cta-btn cta-btn-primary" style="width: 100%; margin-top: 1rem;">Send Enquiry</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Submission Confirmation Popup -->
+        <div id="submission-popup" class="info-popup">
+            <button class="close-popup" aria-label="Close">&times;</button>
+            <h4>Message Sent!</h4>
+            <p>Thank you for your enquiry. Margarita will get back to you shortly.</p>
+        </div>
     </main>
 
-    <!-- Footer -->
     <footer>
-        &copy; 2025 Margarita Celeste Astrology. All rights reserved.
+        &copy; 2025 Margarita Celeste Astrology. All rights reserved. | Business operations based in **Cape Town, South Africa**.
     </footer>
 
     <script>
-        // Smooth scroll for navigation links
+        /* --- Form Styling --- */
+        const style = document.createElement('style');
+        style.textContent = `
+            .form-group { margin-bottom: 1.5rem; }
+            .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--color-spirit); }
+            .form-group input, .form-group select, .form-group textarea {
+                width: 100%;
+                padding: 0.75rem;
+                border-radius: 0.5rem;
+                border: 1px solid var(--color-border);
+                background-color: rgba(0,0,0,0.2);
+                color: var(--color-text-light);
+                font-family: 'Quicksand', sans-serif;
+                font-size: 1rem;
+                box-sizing: border-box; /* Ensures padding doesn't affect width */
+            }
+            .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23eabb88' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e"); background-position: right 0.5rem center; background-repeat: no-repeat; background-size: 1.5em 1.5em; padding-right: 2.5rem; }
+            .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--color-spirit); box-shadow: 0 0 0 2px var(--color-spirit); }
+            .form-group optgroup { background-color: var(--color-body-dark); font-style: normal; font-weight: bold; }
+        `;
+        document.head.appendChild(style);
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
 
                 const targetId = this.getAttribute('href');
-                document.querySelector(targetId).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetElement = document.querySelector(targetId);
+
+                // Check if target exists and scroll to it
+                if (targetElement) {
+                     // Get the fixed header height and subtract it from the scroll position
+                    const headerHeight = document.querySelector('.main-nav').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+            const heroSection = document.querySelector('.hero-section');
+        });
+
+        /* --- Nav Scroll Logic --- */
+        const mainNav = document.querySelector('.main-nav');
+        const secondaryNav = document.querySelector('.secondary-nav');
+        const heroSection = document.querySelector('.hero-section');
+
+        function toggleNavOnScroll() {
+            if (window.scrollY > heroSection.offsetHeight / 2) {
+                secondaryNav.classList.add('visible');
+                mainNav.style.opacity = '0';
+                mainNav.style.visibility = 'hidden';
+            } else {
+                secondaryNav.classList.remove('visible');
+                mainNav.style.opacity = '1';
+                mainNav.style.visibility = 'visible';
+            }
+        }
+        window.addEventListener('scroll', toggleNavOnScroll);
+        toggleNavOnScroll(); // Run on page load
+
+        /* --- Hamburger Menu Logic --- */
+        const hamburgerButtons = document.querySelectorAll('.hamburger-menu');
+        const body = document.body;
+        const navLinks = document.querySelectorAll('.main-nav-links a');
+
+        hamburgerButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                body.classList.toggle('nav-open');
+                const isExpanded = body.classList.contains('nav-open');
+                button.setAttribute('aria-expanded', isExpanded);
             });
         });
+
+        navLinks.forEach(link => link.addEventListener('click', () => body.classList.remove('nav-open')));
+
+        /* --- Expandable List Logic --- */
+        const expandBtn = document.getElementById('expand-trainings-btn');
+        const expandableContent = document.getElementById('additional-trainings');
+        const initialList = document.getElementById('initial-trainings-list');
+
+        if (expandBtn && expandableContent && initialList) {
+            expandBtn.addEventListener('click', () => {
+                const isExpanded = expandableContent.classList.toggle('expanded');
+                expandBtn.setAttribute('aria-expanded', isExpanded);
+                initialList.classList.toggle('expanded');
+
+                if (isExpanded) {
+                    expandBtn.textContent = 'Show less';
+                } else {
+                    expandBtn.textContent = 'Show more';
+                }
+            });
+        }
+
+        /* --- Synchronized Currency Toggle Logic --- */
+        function updateAllCurrencyDisplays(selectedCurrency) {
+            // Update all currency buttons across all sections
+            document.querySelectorAll('.currency-toggle').forEach(toggleContainer => {
+                toggleContainer.querySelectorAll('.currency-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.currency === selectedCurrency);
+                });
+            });
+
+            // Update all service lists across all sections
+            document.querySelectorAll('.service-list').forEach(list => {
+                list.dataset.currencyView = selectedCurrency;
+            });
+
+            // Store the preference in local storage for persistence
+            localStorage.setItem('selectedCurrency', selectedCurrency);
+        }
+
+        // This function runs once the page content is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add event listeners to ALL currency buttons on the page
+            document.querySelectorAll('.currency-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const currency = button.dataset.currency;
+                    updateAllCurrencyDisplays(currency);
+                });
+            });
+
+            // Initialize currency display on page load
+            const storedCurrency = localStorage.getItem('selectedCurrency');
+            if (storedCurrency) {
+                updateAllCurrencyDisplays(storedCurrency);
+            } else {
+                // Default to ZAR if no preference is stored
+                updateAllCurrencyDisplays('ZAR');
+            }
+        });
+
+        /* --- Info Popup Logic --- */
+        const infoIcons = document.querySelectorAll('.info-icon');
+        const popupOverlay = document.getElementById('popup-overlay');
+
+        function closeAllPopups() {
+            document.querySelectorAll('.info-popup.active').forEach(popup => {
+                popup.classList.remove('active');
+            });
+            popupOverlay.style.display = 'none';
+        }
+
+        infoIcons.forEach(icon => {
+            icon.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent triggering other clicks
+                const popupId = icon.getAttribute('data-popup-id');
+                const popup = document.getElementById(popupId);
+                if (popup) {
+                    closeAllPopups(); // Close any open popups first
+                    popup.classList.add('active');
+                    popupOverlay.style.display = 'block';
+                }
+            });
+        });
+
+        document.querySelectorAll('.close-popup').forEach(btn => btn.addEventListener('click', closeAllPopups));
+        popupOverlay.addEventListener('click', closeAllPopups);
+
+        /* --- Contact Form Submission Logic --- */
+        const contactForm = document.getElementById('contact-form');
+        const submissionPopup = document.getElementById('submission-popup');
+
+        if (contactForm && submissionPopup) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault(); // Prevent the default form submission
+
+                const formData = new FormData(this);
+                const formProps = Object.fromEntries(formData);
+
+                // Here you would typically send the data to a server-side script or a service like Formspree
+                // For this example, we'll simulate the process and log it to the console.
+                // console.log("Form Submitted. Data:", formProps);
+                
+                // --- Example using a service like Formspree ---
+                // Replace 'YOUR_FORM_ID' with your actual Formspree endpoint
+                
+                fetch('https://formspree.io/f/xyzbnowr', {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                }).then(response => {
+                    if (response.ok) {
+                        // Show confirmation popup
+                        submissionPopup.classList.add('active');
+                        popupOverlay.style.display = 'block';
+                        contactForm.reset(); // Clear the form
+                    } else {
+                        alert('Oops! There was a problem submitting your form. Please try again.');
+                    }
+                }).catch(error => {
+                    alert('Oops! There was a problem submitting your form. Please try again.');
+                });
+                
+
+                // For demonstration: Show the popup immediately
+                submissionPopup.classList.add('active');
+                popupOverlay.style.display = 'block';
+                contactForm.reset(); // Clear the form
+
+                // Add event listener to the new popup's close button
+                submissionPopup.querySelector('.close-popup').addEventListener('click', closeAllPopups);
+            });
+        }
+
+        /* --- Pre-select Service in Contact Form --- */
+        document.addEventListener('DOMContentLoaded', () => {
+            // Select all buttons that link to the contact form and have a data-service attribute
+            const bookButtons = document.querySelectorAll('.cta-btn[href="#contact"][data-service]');
+            const serviceSelect = document.getElementById('service-selection');
+
+            if (bookButtons.length > 0 && serviceSelect) {
+                bookButtons.forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        // Get the service name directly from the button's data attribute
+                        const serviceName = e.currentTarget.dataset.service;
+                        if (serviceName) {
+                            // Set the value of the dropdown
+                            serviceSelect.value = serviceName;
+                        }
+                    });
+                });
+            }
+        });
+
+        /* --- Testimonial Carousel Interaction Logic --- */
+        const scroller = document.querySelector('.testimonial-scroller');
+        if (scroller) {
+            const carousel = scroller.querySelector('.testimonial-carousel');
+            let isDown = false;
+            let startX;
+            let initialScrollLeft;
+            let autoScrollInterval;
+            let isAutoScrolling = true; // Flag to control auto-scroll
+
+            // Function to start auto-scrolling
+            const startAutoScroll = () => {
+                if (!isAutoScrolling) return; // Don't restart if user has interacted
+
+                // Calculate the width of one set of testimonials for looping
+                // This assumes the carousel contains two identical sets of cards
+                const card = carousel.querySelector('.card');
+                if (!card) return; // Exit if no cards found
+
+                const cardWidth = card.offsetWidth;
+                const computedStyle = getComputedStyle(carousel);
+                const gap = parseFloat(computedStyle.gap);
+                const numOriginalCards = carousel.children.length / 2; // Assuming duplication
+                const scrollLoopPoint = (cardWidth + gap) * numOriginalCards;
+
+                // Speed: original CSS animation was 60s for half the width (scrollLoopPoint)
+                const scrollSpeedPxPerSecond = scrollLoopPoint / 60; // pixels per second
+                const framesPerSecond = 60; // typical monitor refresh rate
+                const scrollSpeedPxPerFrame = scrollSpeedPxPerSecond / framesPerSecond;
+
+                autoScrollInterval = setInterval(() => {
+                    if (!isAutoScrolling) {
+                        clearInterval(autoScrollInterval);
+                        return;
+                    }
+
+                    scroller.scrollLeft += scrollSpeedPxPerFrame;
+
+                    // Loop back when we reach the end of the first set of duplicated items
+                    if (scroller.scrollLeft >= scrollLoopPoint) {
+                        scroller.scrollLeft -= scrollLoopPoint; // Instantly jump back
+                    }
+                }, 1000 / framesPerSecond); // Update roughly 60 times per second
+            };
+
+            // Function to stop auto-scrolling
+            const stopAutoScroll = () => {
+                isAutoScrolling = false;
+                clearInterval(autoScrollInterval);
+            };
+
+            const startDrag = (e) => {
+                stopAutoScroll(); // Stop auto-scroll on drag start
+                isDown = true;
+                carousel.classList.add('active');
+                startX = (e.pageX || e.touches[0].pageX) - scroller.offsetLeft; // Relative to scroller
+                initialScrollLeft = scroller.scrollLeft;
+            };
+
+            const stopDrag = () => {
+                isDown = false;
+                carousel.classList.remove('active');
+            };
+
+            const doDrag = (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = (e.pageX || e.touches[0].pageX) - scroller.offsetLeft; // Relative to scroller
+                const walk = (x - startX) * 2; // Speed multiplier
+                scroller.scrollLeft = initialScrollLeft - walk;
+            };
+
+            // Stop auto-scroll on manual scroll wheel
+            scroller.addEventListener('wheel', stopAutoScroll, { once: true });
+
+            // Drag-to-scroll event listeners on the carousel
+            carousel.addEventListener('mousedown', startDrag);
+            carousel.addEventListener('mouseleave', stopDrag);
+            carousel.addEventListener('mouseup', stopDrag);
+            carousel.addEventListener('mousemove', doDrag);
+            carousel.addEventListener('touchstart', startDrag, { passive: true });
+            carousel.addEventListener('touchend', stopDrag);
+            carousel.addEventListener('touchmove', doDrag);
+
+            // Start auto-scroll when the page loads
+            // Need a small delay to ensure layout is rendered and scrollWidth is correct
+            window.addEventListener('load', () => {
+                // Ensure the carousel has content and is overflowing before starting auto-scroll
+                // Also check if auto-scrolling hasn't been stopped by a very early user interaction
+                if (isAutoScrolling && carousel.scrollWidth > scroller.clientWidth) {
+                    startAutoScroll();
+                }
+            });
+        }
     </script>
 </body>
 </html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Margarita Celeste Astrology</title>
+    <meta name="description" content="Insights on astrology, embodiment, sacred sexuality, and conscious relating from Margarita Celeste.">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&family=Cinzel+Decorative:wght@400;700&family=Miss+Fajardose&display=swap">
+    <link rel="stylesheet" href="style.css"> <!-- Assuming you have a main stylesheet -->
+    <style>
+        /* NOTE: This is a subset of styles from index3.html for consistency. */
+        /* In a real project, these would be in a shared CSS file. */
+        :root {
+            --color-spirit: #eabb88;
+            --color-body: #8F1A1A;
+            --color-body-dark: #501414;
+            --color-bg-dark: #431b1b;
+            --color-text-light: #E2E8F0;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Quicksand', sans-serif;
+            color: var(--color-text-light);
+            background-color: var(--color-bg-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        h1 { font-family: 'Miss Fajardose', serif; font-weight: 300; font-size: 5rem; margin: 1rem 0; color: var(--color-spirit); }
+        h2, h3 { font-family: 'Cinzel Decorative', serif; font-weight: 400; }
+        h3 { font-size: 1.8rem; color: var(--color-body); margin: 0.5rem 0; }
+        p { font-size: 1.1rem; font-weight: 300; }
+        a { color: var(--color-spirit); text-decoration: none; font-weight: 600; }
+        a:hover { text-decoration: underline; }
+        section { padding: 5rem 0; text-align: center; }
+        .section-padding-large { padding: 4rem 0 8rem 0; }
+        footer { padding: 3rem 1.5rem; text-align: center; font-size: 0.875rem; color: #64748b; }
+
+        /* --- Blog Listing Specific Styles --- */
+        .blog-archive-list {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            max-width: 900px;
+            margin: 2rem auto 0 auto;
+            text-align: left;
+        }
+        .blog-archive-item {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        @media (min-width: 768px) {
+            .blog-archive-item {
+                grid-template-columns: 300px 1fr;
+            }
+        }
+        .blog-archive-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .blog-archive-image {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+        .blog-archive-content .date {
+            font-size: 0.875rem;
+            color: #888888;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .blog-archive-content p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        .cta-btn {
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+        }
+        .cta-btn-secondary {
+            background-color: transparent;
+            color: var(--color-spirit);
+            border: 2px solid var(--color-spirit);
+        }
+        .cta-btn-secondary:hover {
+            background-color: var(--color-spirit);
+            color: var(--color-bg-dark);
+            text-decoration: none;
+        }
+        /* Reusing nav styles from index for consistency */
+        .main-nav { position: sticky; top: 0; z-index: 50; background-color: rgba(28, 3, 3, 0.75); backdrop-filter: blur(8px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2); }
+        .main-nav-links { display: flex; justify-content: center; gap: 1.5rem; font-size: 0.95rem; font-weight: 600; list-style: none; padding: 1rem; margin: 0; }
+        .main-nav-links a { color: var(--color-text-light); transition: color 1s ease; text-decoration: none; padding: 0.5rem 0; }
+        .main-nav-links a:hover { color: var(--color-spirit); }
+        @media (max-width: 700px) { .main-nav-links { display: none; } /* Simplified for example */ }
+    </style>
+</head>
+<body>
+
+    <nav class="main-nav" aria-label="Main Navigation">
+        <ul class="main-nav-links">
+            <li><a href="index3.html#home">Home</a></li>
+            <li><a href="index3.html#about">About</a></li>
+            <li><a href="index3.html#services">Services</a></li>
+            <li><a href="index3.html#workshops">Workshops</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index3.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="blog-archive" class="section-padding-large">
+            <div class="container">
+                <h1>AstroNews</h1>
+                <p class="u-text-lead" style="max-width: 800px; margin: 0 auto;">
+                    Insights on astrology, embodiment, sacred sexuality, and conscious relating.
+                </p>
+
+                <div class="blog-archive-list">
+                    <!-- Blog Post Teaser from index -->
+                     <article class="blog-archive-item">
+                        <a href="blog-post-september-horoscopes.html">
+                            <img src="images/ritual.jpg" alt="Abstract image of a ritual" class="blog-archive-image">
+                        </a>
+                        <div class="blog-archive-content">
+                            <h3><a href="blog-post-september-horoscopes.html">Monthly Horoscopes: Unlocking Your September Path</a></h3>
+                            <span class="date">Published September 22, 2025</span>
+                            <p>As the seasons shift, so too do the cosmic energies guiding our lives. This month, we dive deep into the alignments of Virgo season, focusing on the practical application of celestial wisdom...</p>
+                            <a href="blog-post-september-horoscopes.html" class="cta-btn cta-btn-secondary">Read More</a>
+                        </div>
+                    </article>
+                     <article class="blog-archive-item">
+                        <a href="blog-post-venus-retrograde.html">
+                            <img src="images/EmbodiedBG.jpg" alt="Abstract cosmic background" class="blog-archive-image">
+                        </a>
+                        <div class="blog-archive-content">
+                            <h3><a href="blog-post-venus-retrograde.html">Venus Retrograde: The Art of Sacred Desire</a></h3>
+                            <span class="date">Published August 15, 2025</span>
+                            <p>When Venus begins her backward dance, it’s a powerful invitation to re-evaluate our relationships, values, and sensual self. Instead of dreading this period, discover how to harness its transformative power...</p>
+                            <a href="blog-post-venus-retrograde.html" class="cta-btn cta-btn-secondary">Read More</a>
+                        </div>
+                    </article>
+
+                    <!-- Posts from old blog -->
+                    <article class="blog-archive-item">
+                        <a href="#">
+                            <img src="https://margaritaceleste.com/wp-content/uploads/2023/12/astrology-of-2024-1024x576.jpg" alt="Astrology of 2024" class="blog-archive-image">
+                        </a>
+                        <div class="blog-archive-content">
+                            <h3><a href="#">The Astrology of 2024</a></h3>
+                            <span class="date">Published December 29, 2023</span>
+                            <p>The Astrology of 2024 is a big deal. We have Pluto, the planet of death, rebirth, transformation, and power, moving into Aquarius. This is a generational transit that will affect us for the next 20 years.</p>
+                            <a href="#" class="cta-btn cta-btn-secondary">Read More</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-archive-item">
+                        <a href="#">
+                            <img src="https://margaritaceleste.com/wp-content/uploads/2023/10/Scorpio-season-2023-1024x576.jpg" alt="Scorpio Season 2023" class="blog-archive-image">
+                        </a>
+                        <div class="blog-archive-content">
+                            <h3><a href="#">Scorpio Season 2023</a></h3>
+                            <span class="date">Published October 23, 2023</span>
+                            <p>Scorpio Season is here! From October 23rd to November 22nd, the Sun is in the sign of the Scorpion. This is a time of year when we are encouraged to go deep, to explore our shadows, and to embrace our power.</p>
+                            <a href="#" class="cta-btn cta-btn-secondary">Read More</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-archive-item">
+                        <a href="#">
+                            <img src="https://margaritaceleste.com/wp-content/uploads/2023/10/Solar-eclipse-in-Libra-2023-1024x576.jpg" alt="Solar Eclipse in Libra" class="blog-archive-image">
+                        </a>
+                        <div class="blog-archive-content">
+                            <h3><a href="#">Solar Eclipse in Libra</a></h3>
+                            <span class="date">Published October 10, 2023</span>
+                            <p>On October 14th, we have a powerful Solar Eclipse in Libra. This is a time of new beginnings, and it is a particularly potent time for relationships. This eclipse is a South Node eclipse, which means that it is a time of release.</p>
+                            <a href="#" class="cta-btn cta-btn-secondary">Read More</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-archive-item">
+                        <a href="#">
+                            <img src="https://margaritaceleste.com/wp-content/uploads/2023/09/Full-moon-in-Aries-2023-1024x576.jpg" alt="Full Moon in Aries" class="blog-archive-image">
+                        </a>
+                        <div class="blog-archive-content">
+                            <h3><a href="#">Full Moon in Aries</a></h3>
+                            <span class="date">Published September 27, 2023</span>
+                            <p>On September 29th, we have a powerful Full Moon in Aries. This is a time of culmination, and it is a particularly potent time for taking action. This Full Moon is conjunct the North Node, which means that it is a time of fated events.</p>
+                            <a href="#" class="cta-btn cta-btn-secondary">Read More</a>
+                        </div>
+                    </article>
+
+                     <article class="blog-archive-item">
+                        <a href="#">
+                            <img src="https://margaritaceleste.com/wp-content/uploads/2023/09/Sun-in-Libra-2023-1024x576.jpg" alt="Sun in Libra" class="blog-archive-image">
+                        </a>
+                        <div class="blog-archive-content">
+                            <h3><a href="#">Sun in Libra</a></h3>
+                            <span class="date">Published September 23, 2023</span>
+                            <p>On September 23rd, the Sun moves into the sign of Libra. This is a time of year when we are encouraged to find balance in our lives. Libra is the sign of the scales, and it is all about justice, fairness, and equality.</p>
+                            <a href="#" class="cta-btn cta-btn-secondary">Read More</a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 Margarita Celeste Astrology. All rights reserved. | Business operations based in **Cape Town, South Africa**.
+    </footer>
+
+</body>
+</html>
