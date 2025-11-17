@@ -16,18 +16,37 @@
             --color-body-dark: #501414;
             --color-bg-dark: #431b1b;
             --color-text-light: #E2E8F0;
+            --color-border: #553333;
+            
+            /* Spacing/Defaults */
+            --header-height: 4rem;
         }
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Quicksand', sans-serif;
-            color: var(--color-text-light);
-            background-color: var(--color-bg-dark);
+            color: #fff;
+            background-color: var(--color-body-dark);
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.6;        }
+
+        /* --- Mobile Menu Overlay --- */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 34; /* Below nav links, above content */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        body.nav-open::before {
+            opacity: 1;
+            visibility: visible;
         }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-        h1 { font-family: 'Miss Fajardose', serif; font-weight: 300; font-size: 5rem; margin: 1rem 0; color: var(--color-spirit); }
+        h1 { font-family: 'Miss Fajardose', serif; font-weight: 300; font-size: 7rem; margin: 0; color: var(--color-spirit); }
         h2, h3 { font-family: 'Cinzel Decorative', serif; font-weight: 400; }
         h3 { font-size: 1.8rem; color: var(--color-body); margin: 0.5rem 0; }
         p { font-size: 1.1rem; font-weight: 300; }
@@ -50,7 +69,7 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 2rem;
-            align-items: center;
+            align-items: start;
             padding-bottom: 4rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -101,43 +120,159 @@
             color: var(--color-bg-dark);
             text-decoration: none;
         }
-        /* Reusing nav styles from index for consistency */
-        .main-nav { position: sticky; top: 0; z-index: 50; background-color: rgba(28, 3, 3, 0.75); backdrop-filter: blur(8px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2); }
-        .main-nav-links { display: flex; justify-content: center; gap: 1.5rem; font-size: 0.95rem; font-weight: 600; list-style: none; padding: 1rem; margin: 0; }
-        .main-nav-links a { color: var(--color-text-light); transition: color 1s ease; text-decoration: none; padding: 0.5rem 0; }
-        .main-nav-links a:hover { color: var(--color-spirit); }
-        @media (max-width: 700px) { .main-nav-links { display: none; } /* Simplified for example */ }
+        /* Navigation */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+            background-color: rgba(28, 3, 3, 0.75); 
+            backdrop-filter: blur(8px);
+            transition: opacity 1s ease, visibility 1s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        }
+        .main-nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            list-style: none;
+            padding: 0.5rem;
+            margin: 0;
+        }
+        .main-nav-links a {
+            color: var(--color-text-light);
+            transition: color 1s ease;
+            text-decoration: none;
+            padding: 0.5rem 0;
+        }
+        .main-nav-links a:hover,
+        .main-nav-links a:focus {
+            color: var(--color-spirit);
+        }
+        @media (max-width: 450px) {
+            .main-nav-links {
+                font-size:0.7rem;
+                gap: 1rem;
+                display: flex;
+                align-items: end;
+            }
+        }
+        
+        /* --- Hamburger Menu --- */
+        .hamburger-menu {
+            display: none; /* Hidden by default */
+            position: relative;
+            align-items: center;
+            color: var(--color-text-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 300;
+            font-size: 1rem;
+            z-index: 60; /* Above nav content */
+            background: transparent;
+            border: none;
+            padding: 10px;
+            padding-right: 18px;
+            cursor: pointer;
+        }
+        .hamburger-box { width: 30px; height: 24px; display: inline-block; position: relative; }
+        .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after { width: 100%; height: 3px; background-color: var(--color-text-light); border-radius: 3px; position: absolute; transition: transform 0.2s ease-in-out; }
+        .hamburger-inner { top: 50%; transform: translateY(-50%); }
+        .hamburger-inner::before, .hamburger-inner::after { content: ''; display: block; }
+        .hamburger-inner::before { top: -10px; }
+        .hamburger-inner::after { bottom: -10px; }
+        .nav-open .hamburger-inner { transform: rotate(45deg); }
+        .nav-open .hamburger-inner::before { top: 0; transform: rotate(-90deg); }
+        .nav-open .hamburger-inner::after { bottom: 0; transform: rotate(0deg); opacity: 0; }
+
+        @media (max-width: 700px) {
+            .hamburger-menu { display: flex; }
+            .main-nav { display: flex; justify-content: center; width:100%; }
+        }
+
+        .secondary-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%; z-index: 51;
+            background-color: rgba(28, 3, 3, 0.75);
+            backdrop-filter: blur(8px);        
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        }
+        .nav-limiter { max-width:1200px; margin:0 auto; display: flex; align-items: center; justify-content: space-between; padding:0 15px; }
+        .secondary-nav-logo { display: flex; align-items: center; gap: 1rem; }
+        .secondary-nav-logo img { height: 50px; width: auto; }
+        .secondary-nav-logo span { font-family: 'Miss Fajardose', serif; font-size: 2.6rem; }
+        .secondary-nav .main-nav-links { display: flex; justify-content: flex-end; flex: 1; }
+
+        @media (max-width: 700px) {
+            .main-nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                padding:100px 0 50px 0;
+                background-color: var(--color-bg-dark);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                font-size: 1.5rem;
+                transform: translateX(100%);
+                transition: transform 0.3s ease-in-out;
+                z-index: 55;
+            }
+            .nav-open .main-nav-links { transform: translateX(0); }
+            .secondary-nav .nav-limiter { justify-content: space-between; }
+        }
     </style>
 </head>
 <body>
 
-    <nav class="main-nav" aria-label="Main Navigation">
-        <ul class="main-nav-links">
-            <li><a href="index3.html#home">Home</a></li>
-            <li><a href="index3.html#about">About</a></li>
-            <li><a href="index3.html#services">Services</a></li>
-            <li><a href="index3.html#workshops">Workshops</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="index3.html#contact">Contact</a></li>
-        </ul>
+    <nav class="secondary-nav" aria-label="Secondary Navigation">
+        <div class="nav-limiter">
+            <div class="secondary-nav-logo">
+                <img src="images/MCLogoWhite.svg" alt="Margarita Celeste Astrology Logo">
+                <span>Margarita Celeste</span>
+            </div>
+            
+            <button class="hamburger-menu" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav-links-secondary">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+            <ul class="main-nav-links" id="main-nav-links-secondary">
+                <li><a href="index3.html#home">Home</a></li>
+                <li><a href="index3.html#about">About</a></li>
+                <li><a href="index3.html#services">Services</a></li>
+                <li><a href="index3.html#workshops">Workshops</a></li>
+                <li><a href="#blog-archive">Blog</a></li>
+                <li><a href="index3.html#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
     <main>
-        <section id="blog-archive" class="section-padding-large">
+        <header style="background-image: url('images/blogheader.png'); background-size: cover;background-color: #350e13; background-position: left top; text-align: center; padding: 8rem 1.5rem 6rem; margin-top: 4rem;">
             <div class="container">
-                <h1>AstroNews</h1>
-                <p class="u-text-lead" style="max-width: 800px; margin: 0 auto;">
+                <h1 style="text-shadow: 0 0 4px #0e131e, 0 0 16px #000;">Margarita's Blog</h1>
+                <p class="u-text-lead" style="max-width: 800px; margin: 1rem auto 0 auto; color: var(--color-text-light); text-shadow: 0 0 4px #0e131e, 0 0 16px #000;">
                     Insights on astrology, embodiment, sacred sexuality, and conscious relating.
                 </p>
-
+            </div>
+        </header>
+        <section id="blog-archive" style="padding: 4rem 0 8rem 0;">
+            <div class="container" >
                 <div class="blog-archive-list">
                     <!-- Blog Post Teaser from index -->
                      <article class="blog-archive-item">
                         <a href="blog-post-september-horoscopes.html">
-                            <img src="images/ritual.jpg" alt="Abstract image of a ritual" class="blog-archive-image">
+                            <img src="images/blog1.jpg" alt="Abstract image of a ritual" class="blog-archive-image">
                         </a>
                         <div class="blog-archive-content">
-                            <h3><a href="blog-post-september-horoscopes.html">Monthly Horoscopes: Unlocking Your September Path</a></h3>
+                            <h3><a href="blog-post-september-horoscopes.html">The 12th House – Madness or Mystery?</a></h3>
                             <span class="date">Published September 22, 2025</span>
                             <p>As the seasons shift, so too do the cosmic energies guiding our lives. This month, we dive deep into the alignments of Virgo season, focusing on the practical application of celestial wisdom...</p>
                             <a href="blog-post-september-horoscopes.html" class="cta-btn cta-btn-secondary">Read More</a>
@@ -225,5 +360,46 @@
         &copy; 2025 Margarita Celeste Astrology. All rights reserved. | Business operations based in **Cape Town, South Africa**.
     </footer>
 
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                // If the link is to another page, just go there.
+                if (targetId.startsWith('index3.html#')) {
+                    window.location.href = targetId;
+                    return;
+                }
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = document.querySelector('.main-nav').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                }
+            });
+        });
+
+        /* --- Hamburger Menu Logic --- */
+        const hamburgerButtons = document.querySelectorAll('.hamburger-menu');
+        const body = document.body;
+        const navLinks = document.querySelectorAll('.main-nav-links a');
+
+        hamburgerButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                body.classList.toggle('nav-open');
+                const isExpanded = body.classList.contains('nav-open');
+                button.setAttribute('aria-expanded', isExpanded);
+            });
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Only close the nav if it's a same-page link
+                if (link.getAttribute('href').startsWith('#')) {
+                    body.classList.remove('nav-open');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
