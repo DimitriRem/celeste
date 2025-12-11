@@ -158,12 +158,45 @@ document.addEventListener('DOMContentLoaded', () => {
     if (popupOverlay) popupOverlay.addEventListener('click', closeAllPopups);
 
     /**
-     * Contact form submission handling.
+     * Newsletter form submission handling.
      */
+    const newsletterForm = document.getElementById('newsletter-form');
     const contactForm = document.getElementById('contact-form');
-    const submissionPopup = document.getElementById('submission-popup');
+    const submissionPopup = document.getElementById('submission-popup'); // Re-use existing popups
     const errorPopup = document.getElementById('error-popup');
 
+    if (newsletterForm && submissionPopup && errorPopup) {
+        newsletterForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+
+            // IMPORTANT: Replace with your actual Formspree endpoint for the newsletter
+            fetch('https://formspree.io/f/xyzbnowr', {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    submissionPopup.classList.add('active'); // Show success message
+                    if (popupOverlay) popupOverlay.style.display = 'block';
+                    newsletterForm.reset();
+                } else {
+                    // Don't hide the form on error, so the user can try again
+                    errorPopup.classList.add('active');
+                    if (popupOverlay) popupOverlay.style.display = 'block';
+                }
+            }).catch(() => {
+                // Also show error on network failure
+                errorPopup.classList.add('active');
+                if (popupOverlay) popupOverlay.style.display = 'block';
+            });
+        });
+    }
+
+    /**
+     * Contact form submission handling.
+     */
+   
     if (contactForm && submissionPopup) {
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
